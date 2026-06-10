@@ -4,11 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Carlos H. Zapata G. — Data Tools</title>
-<meta name="description" content="Tarjeta de presentación digital de Carlos H. Zapata G., Gerente de Tecnología en Data Tools, Guayaquil - Ecuador.">
+<meta name="description" content="Tarjeta de presentación digital de Carlos H. Zapata G., Gerente de Tecnología en Data Tools. Certificada ISO/IEC 27001:2022.">
 <style>
   :root {
     --azul: #1b3a6b;
     --verde: #1e7a3c;
+    --verde-claro: #2ea44f;
     --verde-oscuro: #14532d;
     --gris: #f4f6f8;
     --texto: #2c3e50;
@@ -45,20 +46,69 @@
     text-transform: uppercase;
     opacity: .9;
   }
-  .foto {
-    width: 128px;
-    height: 128px;
+  .logo-circulo {
+    width: 132px;
+    height: 132px;
     border-radius: 50%;
     border: 4px solid #fff;
-    background: #dfe7ef url("foto.jpg") center/cover no-repeat;
-    margin: -64px auto 12px;
+    background: #fff;
+    margin: -66px auto 12px;
     position: relative;
     box-shadow: 0 4px 16px rgba(0, 0, 0, .15);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
   }
+  .logo-circulo svg { width: 64px; height: 64px; }
+  .logo-circulo .logo-texto {
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    line-height: 1.1;
+    text-align: center;
+  }
+  .logo-texto .d-azul { color: var(--azul); }
+  .logo-texto .d-verde { color: var(--verde); }
   .info { text-align: center; padding: 0 24px 8px; }
   .info h1 { font-size: 24px; color: var(--azul); }
   .info h2 { font-size: 16px; color: var(--verde); font-weight: 600; margin-top: 4px; }
   .info .ubicacion { font-size: 14px; color: #6b7a8d; margin-top: 8px; }
+  .sello-iso {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin: 14px 24px 0;
+    padding: 10px 14px;
+    border: 2px solid var(--verde-claro);
+    border-radius: 16px;
+    background: #fbfdf6;
+  }
+  .sello-iso .kiwa {
+    font-weight: 800;
+    line-height: 1.1;
+    text-align: left;
+    font-size: 16px;
+  }
+  .sello-iso .kiwa .k1 { color: #0a6ebd; }
+  .sello-iso .kiwa .k2 { color: #5b2d8e; font-size: 14px; }
+  .sello-iso .detalle { text-align: left; }
+  .sello-iso .detalle .dt { color: var(--verde-claro); font-weight: 800; font-size: 13px; letter-spacing: 1px; }
+  .sello-iso .detalle .norma { font-size: 12px; color: var(--texto); }
+  .sello-iso .certificada {
+    background: #0a6ebd;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    margin-top: 3px;
+    display: inline-block;
+  }
+  .sello-iso .check { color: var(--verde-claro); font-size: 26px; font-weight: 800; }
   .lema {
     background: var(--verde-oscuro);
     color: #fff;
@@ -118,16 +168,48 @@
     <div class="portada">
       <div class="empresa">Data Tools</div>
     </div>
-    <div class="foto"></div>
+
+    <!-- Logo Data Tools: globo de meridianos azul→verde -->
+    <div class="logo-circulo">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-label="Logo Data Tools">
+        <defs>
+          <linearGradient id="gradGlobo" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#1b3a6b"/>
+            <stop offset="100%" stop-color="#1e7a3c"/>
+          </linearGradient>
+        </defs>
+        <g fill="none" stroke="url(#gradGlobo)" stroke-width="6" stroke-linecap="round">
+          <path d="M 20 25 A 45 45 0 0 1 80 25"/>
+          <path d="M 14 42 A 55 55 0 0 1 86 42"/>
+          <path d="M 14 58 A 55 55 0 0 0 86 58"/>
+          <path d="M 20 75 A 45 45 0 0 0 80 75"/>
+          <path d="M 50 12 A 22 40 0 0 1 50 88"/>
+        </g>
+      </svg>
+      <div class="logo-texto"><span class="d-azul">DATA</span><br><span class="d-verde">TOOLS</span></div>
+    </div>
+
     <div class="info">
       <h1>Carlos H. Zapata G.</h1>
       <h2>Gerente de Tecnología</h2>
-      <p class="ubicacion">📍 Avenida de las Américas N° 31 - 20<br>Guayaquil — Ecuador 🇪🇨</p>
+      <p class="ubicacion">📍 Avenida de las Américas N° 31 - 20</p>
     </div>
+
+    <!-- Sello de certificación ISO/IEC 27001:2022 (versión Colombia) -->
+    <div class="sello-iso">
+      <div class="kiwa"><span class="k1">kiwa</span><br><span class="k2">&gt;CQR</span></div>
+      <div class="detalle">
+        <div class="dt">DATA TOOLS</div>
+        <div class="norma">ISO/IEC 27001:2022</div>
+        <span class="certificada">CERTIFICADA</span>
+      </div>
+      <div class="check">✓</div>
+    </div>
+
     <div class="lema">Somos tecnología · Innovación · Evolución</div>
     <div class="acciones">
-      <a href="tel:+593000000000">📞 Llamar</a>
-      <a href="https://wa.me/593000000000">💬 WhatsApp</a>
+      <a href="tel:+573000000000">📞 Llamar</a>
+      <a href="https://wa.me/573000000000">💬 WhatsApp</a>
       <a href="mailto:carlos.zapata@datatools.com.co">✉️ Correo</a>
       <a href="https://www.datatools.com.co" target="_blank" rel="noopener">🌐 Sitio web</a>
     </div>
@@ -143,10 +225,10 @@
     nombrePila: "Carlos",
     cargo: "Gerente de Tecnología",
     empresa: "Data Tools S.A.",
-    telefono: "+593000000000",
+    telefono: "+573000000000",
     correo: "carlos.zapata@datatools.com.co",
     web: "https://www.datatools.com.co",
-    direccion: "Avenida de las Américas N° 31 - 20, Guayaquil, Ecuador"
+    direccion: "Avenida de las Américas N° 31 - 20"
   };
 
   document.getElementById("btnGuardar").addEventListener("click", () => {
@@ -160,7 +242,7 @@
       `TEL;TYPE=CELL:${contacto.telefono}`,
       `EMAIL;TYPE=WORK:${contacto.correo}`,
       `URL:${contacto.web}`,
-      `ADR;TYPE=WORK:;;${contacto.direccion};;;;Ecuador`,
+      `ADR;TYPE=WORK:;;${contacto.direccion};;;;Colombia`,
       "END:VCARD"
     ].join("\r\n");
     const blob = new Blob([vcard], { type: "text/vcard" });
