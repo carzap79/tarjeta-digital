@@ -1,0 +1,14 @@
+# Claude Code local settings
+.claude/settings.local.json
+
+# OS
+Thumbs.db
+Desktop.ini
+
+# Dependencias y builds (descomenta según el stack del proyecto)
+node_modules/
+dist/
+build/
+__pycache__/
+*.pyc
+.env
