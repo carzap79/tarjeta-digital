@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carlos H. Zapata G. — Data Tools</title>
+<meta name="description" content="Tarjeta de presentación digital de Carlos H. Zapata G., Gerente de Tecnología en Data Tools, Guayaquil - Ecuador.">
+<style>
+  :root {
+    --azul: #1b3a6b;
+    --verde: #1e7a3c;
+    --verde-oscuro: #14532d;
+    --gris: #f4f6f8;
+    --texto: #2c3e50;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+    background: var(--gris);
+    color: var(--texto);
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 16px;
+  }
+  .tarjeta {
+    width: 100%;
+    max-width: 420px;
+    background: #fff;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(27, 58, 107, .18);
+    align-self: flex-start;
+  }
+  .portada {
+    background: linear-gradient(135deg, var(--azul) 0%, var(--verde) 100%);
+    padding: 40px 24px 72px;
+    text-align: center;
+    color: #fff;
+  }
+  .portada .empresa {
+    font-size: 14px;
+    letter-spacing: 4px;
+    font-weight: 700;
+    text-transform: uppercase;
+    opacity: .9;
+  }
+  .foto {
+    width: 128px;
+    height: 128px;
+    border-radius: 50%;
+    border: 4px solid #fff;
+    background: #dfe7ef url("foto.jpg") center/cover no-repeat;
+    margin: -64px auto 12px;
+    position: relative;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, .15);
+  }
+  .info { text-align: center; padding: 0 24px 8px; }
+  .info h1 { font-size: 24px; color: var(--azul); }
+  .info h2 { font-size: 16px; color: var(--verde); font-weight: 600; margin-top: 4px; }
+  .info .ubicacion { font-size: 14px; color: #6b7a8d; margin-top: 8px; }
+  .lema {
+    background: var(--verde-oscuro);
+    color: #fff;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-align: center;
+    padding: 10px 16px;
+    margin: 16px 0;
+    text-transform: uppercase;
+  }
+  .acciones {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    padding: 8px 24px 16px;
+  }
+  .acciones a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 8px;
+    border-radius: 14px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--azul);
+    background: var(--gris);
+    border: 1px solid #e2e8f0;
+    transition: transform .15s ease;
+  }
+  .acciones a:active { transform: scale(.96); }
+  .guardar {
+    display: block;
+    margin: 0 24px 24px;
+    padding: 16px;
+    border: none;
+    border-radius: 14px;
+    background: linear-gradient(135deg, var(--azul), var(--verde));
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+    cursor: pointer;
+    width: calc(100% - 48px);
+  }
+  .pie {
+    text-align: center;
+    font-size: 12px;
+    color: #8a98a8;
+    padding: 0 24px 24px;
+  }
+</style>
+</head>
+<body>
+  <div class="tarjeta">
+    <div class="portada">
+      <div class="empresa">Data Tools</div>
+    </div>
+    <div class="foto"></div>
+    <div class="info">
+      <h1>Carlos H. Zapata G.</h1>
+      <h2>Gerente de Tecnología</h2>
+      <p class="ubicacion">📍 Avenida de las Américas N° 31 - 20<br>Guayaquil — Ecuador 🇪🇨</p>
+    </div>
+    <div class="lema">Somos tecnología · Innovación · Evolución</div>
+    <div class="acciones">
+      <a href="tel:+593000000000">📞 Llamar</a>
+      <a href="https://wa.me/593000000000">💬 WhatsApp</a>
+      <a href="mailto:carlos.zapata@datatools.com.co">✉️ Correo</a>
+      <a href="https://www.datatools.com.co" target="_blank" rel="noopener">🌐 Sitio web</a>
+    </div>
+    <button class="guardar" id="btnGuardar">＋ Guardar contacto</button>
+    <p class="pie">Construimos soluciones para liderar el futuro</p>
+  </div>
+
+<script>
+  // Datos del contacto: edita aquí teléfono y correo reales
+  const contacto = {
+    nombre: "Carlos H. Zapata G.",
+    apellido: "Zapata",
+    nombrePila: "Carlos",
+    cargo: "Gerente de Tecnología",
+    empresa: "Data Tools S.A.",
+    telefono: "+593000000000",
+    correo: "carlos.zapata@datatools.com.co",
+    web: "https://www.datatools.com.co",
+    direccion: "Avenida de las Américas N° 31 - 20, Guayaquil, Ecuador"
+  };
+
+  document.getElementById("btnGuardar").addEventListener("click", () => {
+    const vcard = [
+      "BEGIN:VCARD",
+      "VERSION:3.0",
+      `N:${contacto.apellido};${contacto.nombrePila};;;`,
+      `FN:${contacto.nombre}`,
+      `ORG:${contacto.empresa}`,
+      `TITLE:${contacto.cargo}`,
+      `TEL;TYPE=CELL:${contacto.telefono}`,
+      `EMAIL;TYPE=WORK:${contacto.correo}`,
+      `URL:${contacto.web}`,
+      `ADR;TYPE=WORK:;;${contacto.direccion};;;;Ecuador`,
+      "END:VCARD"
+    ].join("\r\n");
+    const blob = new Blob([vcard], { type: "text/vcard" });
+    const enlace = document.createElement("a");
+    enlace.href = URL.createObjectURL(blob);
+    enlace.download = "Carlos-Zapata-DataTools.vcf";
+    enlace.click();
+    URL.revokeObjectURL(enlace.href);
+  });
+</script>
+</body>
+</html>
