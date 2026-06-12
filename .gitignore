@@ -5,6 +5,11 @@
 Thumbs.db
 Desktop.ini
 
+# Plantillas de firma de correo (internas, no publicar en la tarjeta web)
+_plantillas_zip/
+_*.png
+_*.svg
+
 # Dependencias y builds (descomenta según el stack del proyecto)
 node_modules/
 dist/
