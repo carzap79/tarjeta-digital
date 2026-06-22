@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Directorio — Data Tools</title>
+<meta name="description" content="Directorio de tarjetas digitales del equipo Data Tools S.A.">
+<meta name="theme-color" content="#faf3e7">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cg fill='none' stroke-linecap='round'%3E%3Ccircle cx='55' cy='50' r='38' stroke='%231e8a3c' stroke-width='8'/%3E%3Cpath d='M 55 12 C 78 26 78 74 53 88' stroke='%2315356e' stroke-width='8'/%3E%3Cpath d='M 4 34 C 35 24 70 26 86 36' stroke='%2315356e' stroke-width='8'/%3E%3Cpath d='M 2 52 C 35 44 75 44 90 54' stroke='%2315356e' stroke-width='8'/%3E%3Cpath d='M 8 70 C 35 64 70 62 84 72' stroke='%2315356e' stroke-width='8'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1b3a6b;
+    --azul: #1f5fae;
+    --verde: #1e7a3c;
+    --verde-claro: #2ea44f;
+    --oro: #e9a93d;
+    --oro-claro: #f3c878;
+    --crema: #faf3e7;
+    --texto: #2c3e50;
+    --texto-suave: #6b7a8d;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Plus Jakarta Sans", "Segoe UI", system-ui, sans-serif;
+    background:
+      radial-gradient(1000px 620px at 82% -5%, rgba(243,200,120,.45) 0%, transparent 60%),
+      radial-gradient(820px 600px at -12% 30%, rgba(31,95,174,.10) 0%, transparent 55%),
+      linear-gradient(165deg, #fdf8ee 0%, #f8eed9 55%, #f4e7cf 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+    color: var(--texto);
+    padding: 0 0 60px;
+  }
+
+  /* ── Cabecera ── */
+  header {
+    background: linear-gradient(120deg, #12284d 0%, #1b3a6b 50%, #1f5fae 100%);
+    padding: 36px 24px 32px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: "";
+    position: absolute; inset: 0;
+    background-image: radial-gradient(rgba(255,255,255,.22) 1px, transparent 1.7px);
+    background-size: 18px 18px;
+    mask-image: linear-gradient(180deg, rgba(0,0,0,.7), transparent 90%);
+    -webkit-mask-image: linear-gradient(180deg, rgba(0,0,0,.7), transparent 90%);
+  }
+  header img.logo-header {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    border: 3px solid rgba(243,200,120,.6);
+    object-fit: contain;
+    background: #fff;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 14px;
+  }
+  header h1 {
+    position: relative; z-index: 1;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 6px;
+    color: #fff;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  header p {
+    position: relative; z-index: 1;
+    font-size: 13px;
+    color: rgba(255,255,255,.65);
+    letter-spacing: 1px;
+  }
+  .banda {
+    background: #14532d;
+    color: #fff;
+    text-align: center;
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 2.2px;
+    text-transform: uppercase;
+    padding: 10px;
+  }
+
+  /* ── Búsqueda ── */
+  .buscador-wrap {
+    max-width: 560px;
+    margin: 28px auto 0;
+    padding: 0 16px;
+  }
+  .buscador {
+    width: 100%;
+    padding: 14px 20px;
+    border-radius: 14px;
+    border: 1.5px solid rgba(233,169,61,.4);
+    background: #fff;
+    font-family: inherit;
+    font-size: 15px;
+    color: var(--texto);
+    outline: none;
+    box-shadow: 0 4px 16px rgba(27,58,107,.08);
+    transition: border-color .2s;
+  }
+  .buscador:focus { border-color: var(--oro); }
+  .buscador::placeholder { color: #aab0bc; }
+
+  /* ── Contador ── */
+  .contador {
+    text-align: center;
+    font-size: 12px;
+    color: var(--texto-suave);
+    margin-top: 14px;
+    letter-spacing: .5px;
+  }
+
+  /* ── Grid de tarjetas ── */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+    max-width: 1100px;
+    margin: 20px auto 0;
+    padding: 0 16px;
+  }
+
+  .card {
+    background: #fff;
+    border-radius: 20px;
+    border: 1px solid rgba(233,169,61,.28);
+    box-shadow: 0 6px 24px rgba(27,58,107,.10);
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 36px rgba(27,58,107,.18), 0 0 30px rgba(243,200,120,.20);
+  }
+  .card-hero {
+    height: 64px;
+    background: linear-gradient(120deg, #12284d 0%, #1b3a6b 50%, #1f5fae 100%);
+    position: relative;
+    flex: none;
+  }
+  .card-hero svg {
+    position: absolute;
+    bottom: -1px; left: 0;
+    width: 100%; height: 28px;
+  }
+  .card-body {
+    padding: 10px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+  }
+  .card-nombre {
+    font-size: 16px;
+    font-weight: 800;
+    background: linear-gradient(90deg, var(--navy) 30%, var(--azul) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1.25;
+  }
+  .card-cargo {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    color: var(--verde);
+    margin-top: 2px;
+  }
+  .card-link {
+    margin-top: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--azul);
+    letter-spacing: .3px;
+  }
+  .card-link svg { width: 14px; height: 14px; flex: none; }
+
+  /* ocultar cards filtradas */
+  .card.oculta { display: none; }
+
+  @media (max-width: 420px) {
+    .grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <img class="logo-header" src="logo-circulo.png" alt="Data Tools">
+  <h1>Data&nbsp;Tools</h1>
+  <p>Directorio de tarjetas digitales del equipo</p>
+</header>
+<div class="banda">Somos tecnología · Innovación · Evolución — Construimos soluciones para liderar el futuro</div>
+
+<div class="buscador-wrap">
+  <input class="buscador" type="search" id="buscar" placeholder="Buscar por nombre o cargo…" autocomplete="off">
+</div>
+<p class="contador" id="contador">18 personas</p>
+
+<div class="grid" id="grid">
+
+  <a class="card" href="carlos-zapata/" data-nombre="carlos h zapata g gerente tecnología tecnologia">
+    <div class="card-hero"><svg viewBox="0 0 320 28" fill="none" preserveAspectRatio="none"><path d="M0 16 Q80 4 160 10 T320 8 V28 H0Z" fill="#fff"/></svg></div>
+    <div class="card-body">
+      <div class="card-nombre">Carlos H. Zapata G.</div>
+      <div class="card-cargo">Gerente de Tecnología</div>
+      <span class="card-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Ver tarjeta</span>
+    </div>
+  </a>
+
+  <a class="card" href="mauricio-ceballos/" data-nombre="mauricio ceballos valencia gerente general">
+    <div class="card-hero"><svg viewBox="0 0 320 28" fill="none" preserveAspectRatio="none"><path d="M0 16 Q80 4 160 10 T320 8 V28 H0Z" fill="#fff"/></svg></div>
+    <div class="card-body">
+      <div class="card-nombre">Mauricio Ceballos Valencia</div>
+      <div class="card-cargo">Gerente General</div>
+      <span class="card-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Ver tarjeta</span>
+    </div>
+  </a>
+
+  <a class="card" href="carlos-ramirez/" data-nombre="carlos ramirez herrera gerente comercial">
+    <div class="card-hero"><svg viewBox="0 0 320 28" fill="none" preserveAspectRatio="none"><path d="M0 16 Q80 4 160 10 T320 8 V28 H0Z" fill="#fff"/></svg></div>
+    <div class="card-body">
+      <div class="card-nombre">Carlos Ramirez Herrera</div>
+      <div class="card-cargo">Gerente Comercial</div>
+      <span class="card-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Ver tarjeta</span>
+    </div>
+  </a>
+
+  <a class="card" href="elizabeth-galarza/" data-nombre="elizabeth galarza puerto gerente ciencia datos">
+    <div class="card-hero"><svg viewBox="0 0 320 28" fill="none" preserveAspectRatio="none"><path d="M0 16 Q80 4 160 10 T320 8 V28 H0Z" fill="#fff"/></svg></div>
+    <div class="card-body">
+      <div class="card-nombre">Elizabeth Galarza Puerto</div>
+      <div class="card-cargo">Gerente de Ciencia de Datos</div>
+      <span class="card-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Ver tarjeta</span>
+    </div>
+  </a>
+
+  <a class="card" href="guillermo-pinzon/" data-nombre="guillermo pinzon guerrero gerente operaciones">
+    <div class="card-hero"><svg viewBox="0 0 320 28" fill="none" preserveAspectRatio="none"><path d="M0 16 Q80 4 160 10 T320 8 V28 H0Z" fill="#fff"/></svg></div>
+    <div class="card-body">
+      <div class="card-nombre">Guillermo Pinzon Guerrero</div>
+      <div class="card-cargo">Gerente de Operaciones</div>
+      <span class="card-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Ver tarjeta</span>
+    </div>
+  </a>
+
+  <a class="card" href="jorge-cerezo/" data-nombre="jorge cerezo cuevas gerente financiero administrativo">
+    <div class="card-hero"><svg viewBox="0 0 320 28" fill="none" preserveAspectRatio="none"><path d="M0 16 Q80 4 160 10 T320 8 V28 H0Z" fill="#fff"/></svg></div>
+    <div class="card-body">
+      <div class="card-nombre">Jorge Cerezo Cuevas</div>
+      <div class="card-cargo">Gerente Financiero y Administrativo</div>
+      <span class="card-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Ver tarjeta</span>
+    </div>
+  </a>
+
+  <a class="card" href="luis-rivera/" data-nombre="gabriel rivera paez páez gerente producto">
+    <div class="card-hero"><svg viewBox="0 0 320 28" fill="none" preserveAspectRatio="none"><path d="M0 16 Q80 4 160 10 T320 8 V28 H0Z" fill="#fff"/></svg></div>
+    <div class="card-body">
+      <div class="card-nombre">Gabriel Rivera Páez</div>
+      <div class="card-cargo">Gerente de Producto</div>
+      <span class="card-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Ver tarjeta</span>
+    </div>
+  </a>
+
+  <a class="card" href="maria-santos/" data-nombre="maria santos puerta gerente operaciones movilidad">
+    <div class="card-hero"><svg viewBox="0 0 320 28" fill="none" preserveAspectRatio="none"><path d="M0 16 Q80 4 160 10 T320 8 V28 H0Z" fill="#fff"/></svg></div>
+    <div class="card-body">
+      <div class="card-nombre">Maria Santos Puerta</div>
+      <div class="card-cargo">Gerente de Operaciones de Movilidad</div>
+      <span class="card-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Ver tarjeta</span>
+    </div>
+  </a>
+
+  <a class="card" href="oscar-munoz/" data-nombre="oscar muñoz garzon gerente innovación innovacion desarrollo soluciones">
+    <div class="card-hero"><svg viewBox="0 0 320 28" fill="none" preserveAspectRatio="none"><path d="M0 16 Q80 4 160 10 T320 8 V28 H0Z" fill="#fff"/></svg></div>
+    <div class="card-body">
+      <div class="card-nombre">Oscar Muñoz Garzon</div>
+      <div class="card-cargo">Gerente de Innovación y Desarrollo de Soluciones</div>
+      <span class="card-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Ver tarjeta</span>
+    </div>
+  </a>
+
+  <a class="card" href="oscar-munoz-velasquez/" data-nombre="oscar muñoz velasquez gerente proyecto">
+    <div class="card-hero"><svg viewBox="0 0 320 28" fill="none" preserveAspectRatio="none"><path d="M0 16 Q80 4 160 10 T320 8 V28 H0Z" fill="#fff"/></svg></div>
+    <div class="card-body">
+      <div class="card-nombre">Oscar Muñoz Velasquez</div>
+      <div class="card-cargo">Gerente de Proyecto</div>
+      <span class="card-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Ver tarjeta</span>
+    </div>
+  </a>
+
+  <a class="card" href="cindy-arredondo/" data-nombre="cindy arredondo sanchez gerente juridica jurídica">
+    <div class="card-hero"><svg viewBox="0 0 320 28" fill="none" preserveAspectRatio="none"><path d="M0 16 Q80 4 160 10 T320 8 V28 H0Z" fill="#fff"/></svg></div>
+    <div class="card-body">
+      <div class="card-nombre">Cindy Arredondo Sanchez</div>
+      <div class="card-cargo">Gerente Juridica</div>
+      <span class="card-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Ver tarjeta</span>
+    </div>
+  </a>
+
+  <a class="card" href="erika-alfonso/" data-nombre="erika alfonso gomez director contabilidad">
+    <div class="card-hero"><svg viewBox="0 0 320 28" fill="none" preserveAspectRatio="none"><path d="M0 16 Q80 4 160 10 T320 8 V28 H0Z" fill="#fff"/></svg></div>
+    <div class="card-body">
+      <div class="card-nombre">Erika Alfonso Gomez</div>
+      <div class="card-cargo">Director Contabilidad</div>
+      <span class="card-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Ver tarjeta</span>
+    </div>
+  </a>
+
+  <a class="card" href="nathalia-sepulveda/" data-nombre="nathalia sepulveda robles director talento humano">
+    <div class="card-hero"><svg viewBox="0 0 320 28" fill="none" preserveAspectRatio="none"><path d="M0 16 Q80 4 160 10 T320 8 V28 H0Z" fill="#fff"/></svg></div>
+    <div class="card-body">
+      <div class="card-nombre">Nathalia Sepulveda Robles</div>
+      <div class="card-cargo">Director de Talento Humano</div>
+      <span class="card-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Ver tarjeta</span>
+    </div>
+  </a>
+
+  <a class="card" href="david-olivero/" data-nombre="david olivero ortiz director proyecto senior">
+    <div class="card-hero"><svg viewBox="0 0 320 28" fill="none" preserveAspectRatio="none"><path d="M0 16 Q80 4 160 10 T320 8 V28 H0Z" fill="#fff"/></svg></div>
+    <div class="card-body">
+      <div class="card-nombre">David Olivero Ortiz</div>
+      <div class="card-cargo">Director de Proyecto Senior</div>
+      <span class="card-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Ver tarjeta</span>
+    </div>
+  </a>
+
+  <a class="card" href="gina-torres/" data-nombre="gina torres vargas director proyecto senior">
+    <div class="card-hero"><svg viewBox="0 0 320 28" fill="none" preserveAspectRatio="none"><path d="M0 16 Q80 4 160 10 T320 8 V28 H0Z" fill="#fff"/></svg></div>
+    <div class="card-body">
+      <div class="card-nombre">Gina Torres Vargas</div>
+      <div class="card-cargo">Director de Proyecto Senior</div>
+      <span class="card-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Ver tarjeta</span>
+    </div>
+  </a>
+
+  <a class="card" href="enny-mendoza/" data-nombre="enny mendoza pajaro director proyecto">
+    <div class="card-hero"><svg viewBox="0 0 320 28" fill="none" preserveAspectRatio="none"><path d="M0 16 Q80 4 160 10 T320 8 V28 H0Z" fill="#fff"/></svg></div>
+    <div class="card-body">
+      <div class="card-nombre">Enny Mendoza Pajaro</div>
+      <div class="card-cargo">Director de Proyecto</div>
+      <span class="card-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Ver tarjeta</span>
+    </div>
+  </a>
+
+  <a class="card" href="jovanna-lozada/" data-nombre="jovanna lozada prieto director proyecto junior">
+    <div class="card-hero"><svg viewBox="0 0 320 28" fill="none" preserveAspectRatio="none"><path d="M0 16 Q80 4 160 10 T320 8 V28 H0Z" fill="#fff"/></svg></div>
+    <div class="card-body">
+      <div class="card-nombre">Jovanna Lozada Prieto</div>
+      <div class="card-cargo">Director de Proyecto Junior</div>
+      <span class="card-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Ver tarjeta</span>
+    </div>
+  </a>
+
+  <a class="card" href="tania-perez/" data-nombre="tania perez pérez gerente general ecuador">
+    <div class="card-hero"><svg viewBox="0 0 320 28" fill="none" preserveAspectRatio="none"><path d="M0 16 Q80 4 160 10 T320 8 V28 H0Z" fill="#fff"/></svg></div>
+    <div class="card-body">
+      <div class="card-nombre">Tania Pérez</div>
+      <div class="card-cargo">Gerente General · Ecuador</div>
+      <span class="card-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Ver tarjeta</span>
+    </div>
+  </a>
+
+</div>
+
+<script>
+  const input = document.getElementById("buscar");
+  const cards = document.querySelectorAll(".card");
+  const contador = document.getElementById("contador");
+
+  input.addEventListener("input", () => {
+    const q = input.value.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
+    let visibles = 0;
+    cards.forEach(c => {
+      const texto = c.dataset.nombre.normalize("NFD").replace(/[̀-ͯ]/g, "");
+      const match = texto.includes(q);
+      c.classList.toggle("oculta", !match);
+      if (match) visibles++;
+    });
+    contador.textContent = visibles === 18 ? "18 personas" : `${visibles} resultado${visibles !== 1 ? "s" : ""}`;
+  });
+</script>
+</body>
+</html>
