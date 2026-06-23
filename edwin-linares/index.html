@@ -113,9 +113,9 @@
     </div>
   </div>
 <script>
-  const contacto={nombre:"Edwin Linares",apellido:"Linares",nombrePila:"Edwin",cargo:"Director de Cobranza",empresa:"Data Tools S.A.",telefono:"+51993423431",correo:"edwin.linares@datatools.com.co",web:"https://www.datatools.com.co",direccion:"",ciudad:"Perú"};
+  const contacto={nombre:"Edwin Linares",apellido:"Linares",nombrePila:"Edwin",cargo:"Director de Cobranza",empresa:"Data Tools S.A.",telefono:"+51993423431",correo:"edwin.linares@datatools.com.co",web:"https://www.datatools.com.co",direccion:"",ciudad:"Ecuador"};
   const URL_TARJETA="https://carzap79.github.io/tarjeta-digital/edwin-linares/";
-  function generarVCard(){return["BEGIN:VCARD","VERSION:3.0",`N:${contacto.apellido};${contacto.nombrePila};;;`,`FN:${contacto.nombre}`,`ORG:${contacto.empresa}`,`TITLE:${contacto.cargo}`,`TEL;TYPE=CELL:${contacto.telefono}`,`EMAIL;TYPE=WORK:${contacto.correo}`,`URL:${contacto.web}`,`ADR;TYPE=WORK:;;${contacto.direccion};${contacto.ciudad};;;Perú`,"END:VCARD"].join("\r\n");}
+  function generarVCard(){return["BEGIN:VCARD","VERSION:3.0",`N:${contacto.apellido};${contacto.nombrePila};;;`,`FN:${contacto.nombre}`,`ORG:${contacto.empresa}`,`TITLE:${contacto.cargo}`,`TEL;TYPE=CELL:${contacto.telefono}`,`EMAIL;TYPE=WORK:${contacto.correo}`,`URL:${contacto.web}`,`ADR;TYPE=WORK:;;${contacto.direccion};${contacto.ciudad};;;Ecuador`,"END:VCARD"].join("\r\n");}
   document.getElementById("btnGuardar").addEventListener("click",()=>{const blob=new Blob([generarVCard()],{type:"text/vcard"});const enlace=document.createElement("a");enlace.href=URL.createObjectURL(blob);enlace.download="Edwin-Linares-DataTools.vcf";enlace.click();URL.revokeObjectURL(enlace.href);});
   if(typeof qrcode!=="undefined"&&qrcode.stringToBytesFuncs&&qrcode.stringToBytesFuncs["UTF-8"]){qrcode.stringToBytes=qrcode.stringToBytesFuncs["UTF-8"];}
   const qrFondo=document.getElementById("qrFondo"),qrCanvas=document.getElementById("qrCanvas"),qrNota=document.getElementById("qrNota"),tabContacto=document.getElementById("tabContacto"),tabTarjeta=document.getElementById("tabTarjeta");let modoQR="tarjeta";
