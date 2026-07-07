@@ -212,9 +212,18 @@
 <div class="buscador-wrap">
   <input class="buscador" type="search" id="buscar" placeholder="Buscar por nombre o cargo…" autocomplete="off">
 </div>
-<p class="contador" id="contador">18 personas</p>
+<p class="contador" id="contador">19 personas</p>
 
 <div class="grid" id="grid">
+
+  <a class="card" href="carlos-munoz/" data-nombre="carlos munoz muñoz socio fundador">
+    <div class="card-hero"><svg viewBox="0 0 320 28" fill="none" preserveAspectRatio="none"><path d="M0 16 Q80 4 160 10 T320 8 V28 H0Z" fill="#fff"/></svg></div>
+    <div class="card-body">
+      <div class="card-nombre">Carlos Muñoz</div>
+      <div class="card-cargo">Socio Fundador</div>
+      <span class="card-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Ver tarjeta</span>
+    </div>
+  </a>
 
   <a class="card" href="carlos-zapata/" data-nombre="carlos h zapata g gerente tecnología tecnologia">
     <div class="card-hero"><svg viewBox="0 0 320 28" fill="none" preserveAspectRatio="none"><path d="M0 16 Q80 4 160 10 T320 8 V28 H0Z" fill="#fff"/></svg></div>
@@ -394,7 +403,7 @@
       c.classList.toggle("oculta", !match);
       if (match) visibles++;
     });
-    contador.textContent = visibles === 18 ? "18 personas" : `${visibles} resultado${visibles !== 1 ? "s" : ""}`;
+    contador.textContent = visibles === 19 ? "19 personas" : `${visibles} resultado${visibles !== 1 ? "s" : ""}`;
   });
 </script>
 </body>
