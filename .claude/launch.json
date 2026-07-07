@@ -3,8 +3,8 @@
   "configurations": [
     {
       "name": "tarjeta",
-      "runtimeExecutable": "C:\\Users\\carlos.zapata\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
-      "runtimeArgs": ["-m", "http.server", "8123", "--directory", "C:\\Users\\carlos.zapata\\Documents\\NFC"],
+      "runtimeExecutable": "powershell.exe",
+      "runtimeArgs": ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "C:\\Users\\carlos.zapata\\Documents\\NFC\\.claude\\static-server.ps1", "-Port", "8123", "-Root", "C:\\Users\\carlos.zapata\\Documents\\NFC"],
       "port": 8123
     }
   ]
