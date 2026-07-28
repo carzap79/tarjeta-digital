@@ -552,7 +552,7 @@
       <div class="qr-marco">
         <canvas id="qrCanvas" width="440" height="440"></canvas>
         <div class="qr-logo-centro">
-          <img src="logo-marca.png" alt="Data Tools">
+          <img src="../logo-marca.png" alt="Data Tools">
         </div>
       </div>
       <p class="qr-nota" id="qrNota">Al escanearlo se abre <strong>la tarjeta digital completa</strong> en el navegador del teléfono.</p>
@@ -672,7 +672,7 @@
   // Descargar el QR como imagen PNG
   document.getElementById("qrDescargar").addEventListener("click", () => {
     const enlace = document.createElement("a");
-    enlace.download = modoQR === "contacto" ? "QR-Contacto-Carlos-Zapata.png" : "QR-Tarjeta-Carlos-Zapata.png";
+    enlace.download = modoQR === "contacto" ? "QR-Contacto-David-Olivero.png" : "QR-Tarjeta-David-Olivero.png";
     enlace.href = qrCanvas.toDataURL("image/png");
     enlace.click();
   });
