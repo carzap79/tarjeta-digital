@@ -5,5 +5,6 @@ export default defineConfig({
   site: 'https://www.datatools.com.co',
   output: 'static',
   trailingSlash: 'never',
-  build: { format: 'directory' },
+  // `assets: 'recursos'` evita la carpeta `_astro`, que GitHub Pages (Jekyll) ignoraría en la vista previa.
+  build: { format: 'directory', assets: 'recursos' },
 });
