@@ -1,0 +1,35 @@
+{
+  "nombre": "Data Tools S.A.S",
+  "nombreCorto": "Data Tools",
+  "lema": "Tecnología, innovación y evolución",
+  "descripcion": "Desde 1997 diseñamos, desarrollamos y operamos soluciones tecnológicas para organismos de tránsito, entidades públicas y empresas en Colombia y Perú: plataformas de registro automotor y de conductores, control de infractores, gestión documental, tercerización tecnológica y de procesos, datos e inteligencia artificial.",
+  "fundacion": 1997,
+  "contacto": {
+    "direccion": "Av. de las Américas No. 31-20",
+    "ciudad": "Bogotá D.C., Colombia",
+    "pbx": "+57 (601) 244 19 29",
+    "pbxEnlace": "tel:+576012441929",
+    "correo": "",
+    "whatsapp": "",
+    "horario": "Lunes a viernes, 8:00 a. m. a 5:30 p. m.",
+    "mapa": "https://www.google.com/maps/search/?api=1&query=Av.+de+las+Am%C3%A9ricas+No.+31-20%2C+Bogot%C3%A1"
+  },
+  "redes": [],
+  "navegacion": [
+    { "texto": "Soluciones", "ruta": "/soluciones" },
+    { "texto": "Productos", "ruta": "/productos" },
+    { "texto": "Casos", "ruta": "/casos" },
+    { "texto": "Dato IA", "ruta": "/dato-ia" },
+    { "texto": "Nosotros", "ruta": "/nosotros" },
+    { "texto": "Contacto", "ruta": "/contacto" }
+  ],
+  "legales": [
+    { "texto": "Términos y condiciones", "ruta": "/terminos" },
+    { "texto": "Política de privacidad", "ruta": "/privacidad" },
+    { "texto": "Habeas data", "ruta": "/habeas-data" }
+  ],
+  "enlacesInternos": [
+    { "texto": "Intranet corporativa", "url": "" },
+    { "texto": "Autoservicios de gestión humana", "url": "" }
+  ]
+}

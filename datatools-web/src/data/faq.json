@@ -1,0 +1,26 @@
+[
+  {
+    "pregunta": "¿Con qué tipo de entidades trabaja Data Tools?",
+    "respuesta": "Principalmente con organismos de tránsito y entidades públicas de Colombia y Perú: secretarías de movilidad, departamentos de tránsito y municipalidades. También con clínicas, empresas sociales del Estado y empresas privadas que tercerizan su operación tecnológica o sus procesos de negocio."
+  },
+  {
+    "pregunta": "¿Sus plataformas están integradas con RUNT y SIMIT?",
+    "respuesta": "Sí. Circulemos opera integrado con el RUNT para los trámites de automotores y conductores, y CiDi con el SIMIT para el proceso contravencional. Las integraciones se mantienen al día con los cambios normativos como parte del ciclo de versiones."
+  },
+  {
+    "pregunta": "¿Pueden operar el servicio completo o solo entregan el software?",
+    "respuesta": "Ambas cosas. Entregamos las plataformas como servicio en nube o instaladas en la entidad, y cuando el cliente lo requiere asumimos también la operación: puntos de atención, mesa de servicios, gestión documental, cartera y monitoreo tecnológico 7×24."
+  },
+  {
+    "pregunta": "¿Cómo garantizan la disponibilidad y la seguridad de la información?",
+    "respuesta": "Con un centro de operaciones que monitorea las plataformas de forma permanente, respaldos y planes de continuidad, controles de acceso por rol, trazabilidad de cada actuación y compromisos de disponibilidad medidos y reportados mensualmente. La protección de datos personales se aplica conforme a la Ley 1581 de 2012."
+  },
+  {
+    "pregunta": "¿Qué es Dato IA?",
+    "respuesta": "Es nuestra línea de inteligencia artificial aplicada a la operación: lectura automática de documentos, asistentes para funcionarios y ciudadanos, agentes que ejecutan tareas y automatización de procesos repetitivos. Se implementa por casos de uso, con pilotos medibles y con un sistema de gestión que toma la norma ISO/IEC 42001 como referencia."
+  },
+  {
+    "pregunta": "¿Cómo empieza un proyecto con Data Tools?",
+    "respuesta": "Con una conversación de diagnóstico sin costo: entendemos el proceso, los sistemas actuales y las metas, y en pocos días entregamos una propuesta con alcance, plan y compromisos de servicio. Escríbenos desde la página de contacto o llámanos al PBX."
+  }
+]
