@@ -3,25 +3,44 @@ import Base from '../layouts/Base.astro';
 import Seccion from '../components/Seccion.astro';
 import CtaFinal from '../components/CtaFinal.astro';
 import sitio from '../data/sitio.json';
+import casos from '../data/casos.json';
 
 const anios = new Date().getFullYear() - sitio.fundacion;
 
+// Valores corporativos publicados por Data Tools (www.datatools.com.co → Información corporativa → Valores institucionales)
 const valores = [
-  ['Integridad', 'Hacemos lo que decimos y lo dejamos por escrito: alcances, compromisos y resultados.'],
-  ['Servicio', 'El ciudadano en la ventanilla y el funcionario detrás del sistema son la razón de cada línea de código.'],
-  ['Calidad', 'Procesos documentados, medidos y auditados; corregimos la causa, no el síntoma.'],
-  ['Innovación con criterio', 'Adoptamos tecnología cuando resuelve un problema real y se puede operar con seguridad.'],
-  ['Compromiso', 'Operamos 7×24 porque la ciudad no se detiene; respondemos cuando más se necesita.'],
+  ['Honestidad', 'Actuamos desde la verdad.'],
+  ['Compromiso', 'Vamos más allá del deber.'],
+  ['Disciplina', 'Cumplimos normas, reglas y procedimientos.'],
 ];
 
-const hitos = [
-  ['1997', 'Fundación de Data Tools en Bogotá, con foco en soluciones informáticas para organismos de tránsito.'],
-  ['2000 a 2010', 'Circulemos se consolida como plataforma para el registro automotor, de conductores y el control de infractores; primeras integraciones con los sistemas nacionales.'],
-  ['2010 a 2020', 'Crecen las líneas de operación tecnológica y de procesos de negocio; la compañía entra en el listado de las 900 empresas más grandes de Colombia de la revista Semana.'],
-  ['2020 en adelante', 'Operación en Colombia y Perú, nube y seguridad 7×24, CiDi para contravenciones y cartera, y el nacimiento de Dato IA.'],
+// Compromisos de la Política del Sistema Integrado de Gestión (vigente desde el 17 de junio de 2026)
+const politica = [
+  'Cumplir los requisitos de nuestros clientes y partes interesadas, buscando la satisfacción de accionistas y entes reguladores.',
+  'Prevenir lesiones y deterioro de la salud con condiciones de trabajo seguras, eliminando peligros y reduciendo riesgos, con la consulta y participación de los trabajadores.',
+  'Prevenir la contaminación y controlar los aspectos ambientales de nuestras actividades.',
+  'Cumplir la normatividad nacional en calidad, ambiente, seguridad y salud en el trabajo y seguridad de la información.',
+  'Utilizar tecnología adecuada y contar con talento humano calificado.',
+  'Preservar la disponibilidad, confidencialidad e integridad de la información, integrando prácticas de seguridad en todas las áreas.',
+  'Mantener y mejorar continuamente el sistema integrado de gestión con liderazgo basado en evidencia.',
 ];
+
+const especialidades = [
+  ['Gestión de proyectos de TI', 'PMP'],
+  ['Seguridad de la información', 'CISM, ISO/IEC 27001 Lead Auditor, FCNSA'],
+  ['Infraestructura', 'RHCE, VCP, MCSA, CCNA, RHCVEA'],
+  ['Desarrollo de software', 'Java EE, .NET'],
+  ['Procesos de TI', 'ITIL v3, COBIT, TOGAF'],
+  ['Operación', 'Analistas, desarrolladores, testers, ingenieros de campo y agentes de soporte'],
+];
+
+const documentos = {
+  etica: 'https://www.datatools.com.co/assets/1738707380cÓdigodeÉtica.pdf',
+  denunciaExternos: 'https://forms.office.com/r/QvjmG6sJww',
+  denunciaColaboradores: 'https://forms.office.com/r/PH509PRY8b',
+};
 ---
-<Base titulo="Nosotros" descripcion="Data Tools S.A.S: quiénes somos, misión, visión, valores y sistema integrado de gestión. Desde 1997 diseñamos y operamos soluciones tecnológicas para organismos de tránsito y entidades en Colombia y Perú.">
+<Base titulo="Nosotros" descripcion="Data Tools S.A.S: quiénes somos, misión, visión, valores, trayectoria y sistema integrado de gestión. Desde 1997 diseñamos y operamos soluciones tecnológicas para organismos de tránsito y entidades en Colombia y Perú.">
 
   <section class="portada-interna cuadricula">
     <div class="contenedor portada-nosotros">
@@ -34,18 +53,24 @@ const hitos = [
     </div>
   </section>
 
-  <Seccion numero="01" rotulo="Quiénes somos" titulo="Diseño, desarrollo, implementación, operación y soporte de soluciones informáticas.">
+  <Seccion numero="01" rotulo="Quiénes somos" titulo="Una empresa líder en servicios integrales de ITO y BPO, fundada en 1997.">
     <div class="dos-columnas">
-      <p class="grande">
-        Data Tools S.A.S es una empresa dedicada al diseño, desarrollo, implementación, administración, soporte técnico y
-        servicios de procesos de negocio de soluciones informáticas para la gestión de registros automotores, conductores,
-        infractores, gestión documental, patios, grúas, gestión de cartera, procesamiento de datos, transformación digital y
-        atención al cliente, para organismos de tránsito y entidades de apoyo al tránsito.
-      </p>
+      <div>
+        <p class="grande">
+          Nuestro compromiso es brindar a nuestros clientes soluciones sostenibles y rentables en el tiempo, impulsando el
+          crecimiento de sus negocios a través de la transformación de procesos y el desarrollo de su capacidad de innovación.
+        </p>
+        <p>
+          Data Tools S.A.S se dedica al diseño, desarrollo, implementación, administración, soporte técnico y servicios de
+          procesos de negocio de soluciones informáticas para la gestión de registros automotores, conductores, infractores,
+          gestión documental, patios, grúas, gestión de cartera, procesamiento de datos, transformación digital y atención al
+          cliente, para organismos de tránsito y entidades de apoyo al tránsito.
+        </p>
+      </div>
       <p>
         Somos parte de las 900 empresas más grandes de Colombia según la revista Semana y contamos con un equipo de 85
         profesionales certificados que garantizan un servicio adecuado y oportuno. Operamos en Colombia y Perú, con la
-        capacidad para atender al resto de Latinoamérica.
+        capacidad para atender al resto de Latinoamérica, desde nuestra sede y centro de datos en Bogotá.
       </p>
     </div>
   </Seccion>
@@ -54,49 +79,86 @@ const hitos = [
     <div class="rejilla rejilla--2">
       <article class="bloque-mv">
         <span class="mono">Misión</span>
-        <p>Transformamos negocios mediante soluciones y servicios tecnológicos innovadores, impulsados por un equipo calificado, garantizando seguridad, calidad y agilidad.</p>
+        <p>Transformamos negocios mediante soluciones y servicios tecnológicos innovadores, impulsadas por un equipo calificado; garantizando seguridad, calidad y agilidad.</p>
       </article>
       <article class="bloque-mv">
         <span class="mono">Visión</span>
-        <p>Para el año 2030, ser reconocidos como referente de transformación digital de negocios en Latinoamérica, generando valor y potenciando la competitividad de nuestros clientes.</p>
+        <p>Para el año 2030, ser reconocidos como referente de transformación digital de negocios en Latinoamérica, generando valor y potencializando la competitividad de nuestros clientes.</p>
       </article>
     </div>
   </Seccion>
 
-  <Seccion numero="03" rotulo="Valores" titulo="Lo que se nota en la operación diaria.">
-    <dl class="definiciones">
-      {valores.map(([n, t]) => <div><dt>{n}</dt><dd>{t}</dd></div>)}
-    </dl>
-  </Seccion>
-
-  <Seccion numero="04" rotulo="Trayectoria" titulo="Casi tres décadas al lado de los organismos de tránsito." tono="tinte">
-    <ol class="linea-tiempo">
-      {hitos.map(([a, t]) => <li><span class="mono">{a}</span><p>{t}</p></li>)}
-    </ol>
-  </Seccion>
-
-  <Seccion id="sig" numero="05" rotulo="Sistema Integrado de Gestión" titulo="Procesos que se pueden auditar." tono="blanca">
+  <Seccion numero="03" rotulo="Valores corporativos" titulo="Tres valores que se notan en la operación diaria.">
     <div class="rejilla rejilla--3">
+      {valores.map(([n, t]) => (
+        <article class="tarjeta valor">
+          <span class="marca" aria-hidden="true"></span>
+          <h3>{n}</h3>
+          <p class="grande">{t}</p>
+        </article>
+      ))}
+    </div>
+  </Seccion>
+
+  <Seccion numero="04" rotulo="Trayectoria" titulo="Experiencia acumulada en operaciones de gran escala." tono="tinte"
+    intro="Antes de concentrarnos en los organismos de tránsito, operamos la tecnología de servicios públicos y de transporte masivo. Esa escala es la que hoy respalda cada proyecto.">
+    <div class="tabla-envoltura">
+      <table class="ficha">
+        <thead><tr><th>Proyecto</th><th>Alcance</th></tr></thead>
+        <tbody>
+          {casos.trayectoria.map((t) => <tr><td>{t.proyecto}</td><td>{t.alcance}</td></tr>)}
+        </tbody>
+      </table>
+    </div>
+  </Seccion>
+
+  <Seccion numero="05" rotulo="Equipo" titulo="85 profesionales certificados, sin intermediarios." tono="blanca">
+    <div class="dos-columnas">
+      <p class="grande">
+        Ingenieros especializados en gestión de proyectos, seguridad de la información, infraestructura, desarrollo de software y
+        procesos de TI, junto con analistas, desarrolladores, testers, ingenieros de campo y agentes de soporte. Institucionalizamos
+        prácticas reconocidas por la industria y trabajamos con tecnología madura y escalable bajo estándares abiertos.
+      </p>
+      <dl class="definiciones">
+        {especialidades.map(([n, t]) => <div><dt>{n}</dt><dd>{t}</dd></div>)}
+      </dl>
+    </div>
+  </Seccion>
+
+  <Seccion id="sig" numero="06" rotulo="Sistema Integrado de Gestión" titulo="Procesos que se pueden auditar." tono="tinte">
+    <div class="rejilla rejilla--2">
       <article class="tarjeta">
         <span class="marca" aria-hidden="true"></span>
         <h3>Alcance</h3>
-        <p>Diseño, desarrollo, implementación, operación y soporte de soluciones informáticas y servicios de procesos de negocio para organismos de tránsito, entidades públicas y empresas.</p>
+        <p>Diseño, desarrollo, implementación, administración, soporte técnico y servicios de procesos de negocio (BPO) de soluciones informáticas para la gestión de registros automotores, conductores, infractores, gestión documental, patios, grúas, gestión de cartera, procesamiento de datos, transformación digital y atención al cliente, para organismos de tránsito y entidades de apoyo al tránsito.</p>
       </article>
       <article class="tarjeta">
         <span class="marca" aria-hidden="true"></span>
         <h3>Política</h3>
-        <p>Nos comprometemos con la satisfacción de nuestros clientes, la seguridad de la información, la salud y seguridad de nuestro equipo, el cumplimiento normativo y la mejora continua de nuestros procesos.</p>
-      </article>
-      <article class="tarjeta" id="etica">
-        <span class="marca" aria-hidden="true"></span>
-        <h3>Código de ética</h3>
-        <p>Actuamos con transparencia frente a clientes, proveedores y autoridades; rechazamos cualquier forma de corrupción y protegemos la información que se nos confía. El código completo está disponible para clientes y aliados.</p>
+        <p>Data Tools S.A.S se compromete a estructurar e implementar el sistema integrado de gestión y a:</p>
+        <ul class="lista-marcas">
+          {politica.map((p) => <li>{p}</li>)}
+        </ul>
+        <p class="pie-nota">Política vigente desde el 17 de junio de 2026.</p>
       </article>
     </div>
-    <p class="pie-nota" style="margin-top:16px">Los textos oficiales de alcance, política y código de ética se publican aquí una vez aprobados por la Dirección General.</p>
   </Seccion>
 
-  <Seccion numero="06" rotulo="Dato" titulo="El asistente que representa cómo trabajamos.">
+  <Seccion id="etica" numero="07" rotulo="Ética y transparencia" titulo="No tolerancia frente a los actos ilícitos o contrarios a la ética.">
+    <div class="dos-columnas">
+      <div>
+        <p class="grande">Nuestro Código de Ética establece los lineamientos, principios y valores que rigen todas las relaciones de la compañía. Contamos con un Programa de Transparencia y Ética Empresarial para prevenir y controlar las conductas contrarias a la ética y a la ley.</p>
+        <p>Cualquier persona puede reportar de forma anónima una conducta contraria a la ética a través de los canales de denuncia, atendidos con independencia de la operación.</p>
+      </div>
+      <ul class="enlaces-doc">
+        <li><a href={documentos.etica} rel="noopener" target="_blank">Código de Ética (PDF)</a><span>Documento completo publicado por Data Tools</span></li>
+        <li><a href={documentos.denunciaExternos} rel="noopener" target="_blank">Canal de denuncia para clientes, proveedores y terceros</a><span>Formulario anónimo</span></li>
+        <li><a href={documentos.denunciaColaboradores} rel="noopener" target="_blank">Canal de denuncia para colaboradores</a><span>Formulario anónimo</span></li>
+      </ul>
+    </div>
+  </Seccion>
+
+  <Seccion numero="08" rotulo="Dato" titulo="El asistente que representa cómo trabajamos." tono="blanca">
     <div class="conoce-dato">
       <img src="/media/dato-asistente.webp" alt="Dato, tu asistente inteligente para tomar mejores decisiones" width="300" height="300" loading="lazy" />
       <div>
@@ -115,15 +177,19 @@ const hitos = [
   .portada-nosotros { display: grid; grid-template-columns: 1.4fr 1fr; gap: 32px; align-items: center; }
   .portada-nosotros h1 { max-width: 24ch; }
   .portada-nosotros img { width: min(100%, 260px); justify-self: center; filter: drop-shadow(0 16px 24px rgba(11,42,74,.2)); }
-  .dos-columnas { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; }
+  .dos-columnas { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: start; }
   .bloque-mv { border: 1px solid rgba(255,255,255,.18); border-radius: var(--radio); padding: 28px; background: rgba(255,255,255,.04); }
   .bloque-mv .mono { color: #7fd6d6; letter-spacing: .08em; text-transform: uppercase; font-size: .8rem; }
   .bloque-mv p { font-size: 1.15rem; color: #fff; margin: 12px 0 0; }
-  .linea-tiempo { list-style: none; padding: 0; margin: 0; display: grid; gap: 0; border-left: 2px solid var(--teal); }
-  .linea-tiempo li { padding: 0 0 22px 24px; position: relative; }
-  .linea-tiempo li::before { content: ""; position: absolute; left: -7px; top: 6px; width: 12px; height: 12px; background: var(--teal); border-radius: 50%; border: 2px solid var(--tinte); }
-  .linea-tiempo .mono { color: var(--teal-oscuro); font-weight: 500; font-size: .9rem; }
-  .linea-tiempo p { margin: 4px 0 0; max-width: 70ch; }
+  .valor h3 { font-size: 1.5rem; }
+  .valor .grande { margin: 0; color: var(--tinta-2); }
+  .lista-marcas { list-style: none; padding: 0; margin: 8px 0 12px; display: grid; gap: 8px; }
+  .lista-marcas li { padding-left: 20px; position: relative; font-size: .95rem; }
+  .lista-marcas li::before { content: ""; position: absolute; left: 0; top: .55em; width: 9px; height: 9px; background: var(--teal); }
+  .enlaces-doc { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+  .enlaces-doc li { border: 1px solid var(--linea); background: var(--blanco); border-radius: 4px; padding: 14px 16px; display: grid; gap: 4px; }
+  .enlaces-doc a { font-weight: 600; }
+  .enlaces-doc span { font-size: .85rem; color: var(--gris); font-family: var(--mono); }
   .conoce-dato { display: grid; grid-template-columns: 300px 1fr; gap: 40px; align-items: center; }
   .conoce-dato img { width: 300px; height: 300px; object-fit: cover; border-radius: var(--radio); border: 1px solid var(--linea); }
   @media (max-width: 900px) { .portada-nosotros, .dos-columnas, .conoce-dato { grid-template-columns: 1fr; } .portada-nosotros img { order: -1; width: 180px; } .conoce-dato img { width: 100%; max-width: 300px; } }

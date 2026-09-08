@@ -21,7 +21,13 @@ import Base from '../layouts/Base.astro';
       <p>Las consultas y reclamos se atienden a través del formulario de contacto de este sitio o en la sede principal, en los términos y plazos previstos por la ley.</p>
       <h2>Vigencia</h2>
       <p>Esta política rige desde su publicación y se actualiza cuando cambian las finalidades o la normativa aplicable.</p>
-      <p class="aviso">Texto base preparado para revisión. La versión oficial la aprueba la Dirección General y el área jurídica de Data Tools antes de la publicación del sitio.</p>
+      <h2>Documentos oficiales</h2>
+      <ul class="documentos">
+        <li><a href="https://www.datatools.com.co/assets/1751983867gj-pt-01polÍticadetratamientodedatospersonales.pdf" rel="noopener" target="_blank">GJ-PT-01 Política de tratamiento de datos personales (PDF)</a></li>
+        <li><a href="https://www.datatools.com.co/assets/1751405921gj-fm-01avisodeprivacidaddatatoolss.a.s.pdf" rel="noopener" target="_blank">GJ-FM-01 Aviso de privacidad (PDF)</a></li>
+        <li><a href="https://www.datatools.com.co/assets/1751405948gj-fm-02autorizaciondetratamientodedatospersonalesysensibles.pdf" rel="noopener" target="_blank">GJ-FM-02 Autorización de tratamiento de datos personales y sensibles (PDF)</a></li>
+      </ul>
+      <p class="aviso">Resumen preparado para revisión: la versión que rige es la política GJ-PT-01 publicada por Data Tools. El área jurídica confirma este texto antes de la publicación del sitio.</p>
     </div>
   </section>
 </Base>
@@ -29,4 +35,5 @@ import Base from '../layouts/Base.astro';
   .portada-interna { padding: clamp(40px, 6vw, 72px) 0; border-bottom: 1px solid var(--linea); }
   .legal { max-width: 820px; }
   .legal h2 { font-size: 1.25rem; margin-top: 28px; }
+  .documentos { padding-left: 20px; display: grid; gap: 8px; }
 </style>

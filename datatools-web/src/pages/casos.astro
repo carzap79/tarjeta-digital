@@ -35,7 +35,14 @@ import casos from '../data/casos.json';
     </div>
   </Seccion>
 
-  <Seccion numero="C-03" rotulo="Líneas de trabajo" titulo="Qué hacemos en cada proyecto." tono="blanca">
+  <Seccion numero="C-03" rotulo="Sector salud" titulo="Instituciones de salud que operan con nuestro software." tono="blanca"
+    intro="Clínicas, empresas sociales del Estado, instituciones prestadoras de servicios de salud, secretarías de salud y administradoras del régimen especial, con software misional en arrendamiento sobre nuestra infraestructura.">
+    <ul class="salud">
+      {casos.salud.map((s) => <li><strong>{s.entidad}</strong>{s.lugar && <span class="mono">{s.lugar}</span>}</li>)}
+    </ul>
+  </Seccion>
+
+  <Seccion numero="C-04" rotulo="Líneas de trabajo" titulo="Qué hacemos en cada proyecto.">
     <div class="tabla-envoltura">
       <table class="ficha">
         <thead><tr><th>Línea</th><th>Qué resuelve</th><th>Alcance</th></tr></thead>
@@ -46,7 +53,7 @@ import casos from '../data/casos.json';
     </div>
   </Seccion>
 
-  <Seccion numero="C-04" rotulo="Sectores" titulo="Donde aplicamos la misma disciplina de operación.">
+  <Seccion numero="C-05" rotulo="Sectores" titulo="Donde aplicamos la misma disciplina de operación." tono="tinte">
     <ul class="sectores">
       {casos.sectores.map((s) => <li>{s}</li>)}
     </ul>
@@ -62,4 +69,7 @@ import casos from '../data/casos.json';
   .sectores { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
   .sectores li { border: 1px solid var(--linea); background: var(--blanco); padding: 10px 16px; border-radius: 4px; font-weight: 500; color: var(--tinta); }
   .sectores li::before { content: "■ "; color: var(--teal); }
+  .salud { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; }
+  .salud li { border: 1px solid var(--linea); background: var(--papel); border-radius: 4px; padding: 14px 16px; display: grid; gap: 4px; }
+  .salud .mono { font-size: .8rem; color: var(--gris); }
 </style>
