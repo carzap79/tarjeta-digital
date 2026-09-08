@@ -12,5 +12,11 @@ Archivos esperados (están en el zip `datatools-web.zip` entregado el 8 de septi
 - Versiones con fondo transparente: dato-celebra-recorte.webp, dato-corazon-recorte.webp, dato-duda-recorte.webp,
   dato-grafico-recorte.webp, dato-idea-recorte.webp, dato-ok-recorte.webp, dato-pensando-recorte.webp,
   dato-portatil-recorte.webp
+- logo-original-datatools.png: el PNG del logo tal como está publicado en www.datatools.com.co (246×173), como referencia.
 
-Mientras no estén, el sitio compila igual pero las imágenes aparecen vacías.
+También es binario `public/apple-touch-icon.png` (ícono para iOS, 180×180); va en la raíz de `public/`.
+
+El logo que usa el sitio (`public/logo-datatools.svg`, `public/logo-datatools-sello.svg` y `public/favicon.svg`)
+sí está en el repositorio: son SVG que envuelven el PNG oficial.
+
+Mientras no estén los medios, el sitio compila igual pero las imágenes de Dato aparecen vacías.

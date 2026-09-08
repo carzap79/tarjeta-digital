@@ -6,7 +6,7 @@ const activa = (r: string) => ruta === r || (r !== '/' && ruta.startsWith(r));
 ---
 <header class="cabecera">
   <div class="contenedor cabecera__fila">
-    <a href="/" class="cabecera__logo" aria-label="Ir al inicio"><Logo alto={34} /></a>
+    <a href="/" class="cabecera__logo" aria-label="Ir al inicio"><Logo alto={62} /></a>
 
     <button class="cabecera__boton" type="button" aria-expanded="false" aria-controls="menu-principal" id="boton-menu">
       <span class="visualmente-oculto">Abrir menú</span>
@@ -37,7 +37,7 @@ const activa = (r: string) => ruta === r || (r !== '/' && ruta.startsWith(r));
 
 <style>
   .cabecera { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--linea); }
-  .cabecera__fila { display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 68px; }
+  .cabecera__fila { display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 78px; }
   .cabecera__logo { display: inline-flex; text-decoration: none; }
   .cabecera__nav { display: flex; align-items: center; gap: 22px; }
   .cabecera__nav ul { display: flex; gap: 4px; list-style: none; margin: 0; padding: 0; }
