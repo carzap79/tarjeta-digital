@@ -1,0 +1,169 @@
+---
+import Base from '../layouts/Base.astro';
+import Seccion from '../components/Seccion.astro';
+import CtaFinal from '../components/CtaFinal.astro';
+import Faq from '../components/Faq.astro';
+import sitio from '../data/sitio.json';
+import soluciones from '../data/soluciones.json';
+import productos from '../data/productos.json';
+import casos from '../data/casos.json';
+import faq from '../data/faq.json';
+
+const anios = new Date().getFullYear() - sitio.fundacion;
+---
+<Base titulo="Inicio" descripcion={sitio.descripcion}>
+
+  <!-- ============================================================ portada -->
+  <section class="portada cuadricula">
+    <div class="contenedor portada__rejilla">
+      <div class="portada__texto">
+        <div class="rotulo"><span>Data Tools S.A.S</span><span aria-hidden="true">/</span><span>Bogotá · desde {sitio.fundacion}</span></div>
+        <h1>Construimos y operamos la tecnología detrás de los trámites que mueven a las ciudades.</h1>
+        <p class="grande">
+          Plataformas de tránsito integradas con RUNT y SIMIT, operación tecnológica 7×24, procesos de negocio,
+          gestión documental e inteligencia artificial aplicada. Para entidades públicas y empresas de Colombia y Perú.
+        </p>
+        <div class="acciones">
+          <a class="boton" href="/soluciones">Ver soluciones</a>
+          <a class="boton boton--secundario" href="/contacto">Hablar con un asesor</a>
+        </div>
+        <ul class="portada__sellos" aria-label="Respaldos">
+          <li>{anios} años de operación continua</li>
+          <li>85 profesionales certificados</li>
+          <li>Entre las 900 empresas más grandes de Colombia</li>
+        </ul>
+      </div>
+      <div class="portada__figura">
+        <img src="/media/dato-ok-recorte.webp" alt="Dato, el asistente inteligente de Data Tools, saluda con el pulgar arriba" width="600" height="900" fetchpriority="high" />
+        <span class="portada__etiqueta mono">Dato · asistente inteligente</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ cifras -->
+  <section class="seccion seccion--blanca" style="padding-top:0;padding-bottom:0">
+    <div class="contenedor cifras-portada">
+      <div class="cifras">
+        <div class="cifra"><small>Fundación</small><strong>{sitio.fundacion}</strong><span>{anios} años diseñando y operando soluciones</span></div>
+        <div class="cifra"><small>Equipo</small><strong>85</strong><span>profesionales certificados</span></div>
+        <div class="cifra"><small>Operación</small><strong>+5 M</strong><span>transacciones al año en nuestras plataformas</span></div>
+        <div class="cifra"><small>Presencia</small><strong>2 países</strong><span>Colombia y Perú, con alcance a Latinoamérica</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ qué hacemos -->
+  <Seccion numero="01" rotulo="Qué hacemos" titulo="Seis líneas de servicio, una sola forma de trabajar: con método, indicadores y gente que responde."
+    intro="Cada línea se entrega con compromisos de servicio medibles y se puede contratar sola o como operación integral.">
+    <div class="rejilla rejilla--3">
+      {soluciones.map((s) => (
+        <article class="tarjeta">
+          <span class="codigo">{s.codigo}</span>
+          <span class="marca" aria-hidden="true"></span>
+          <h3>{s.nombre}</h3>
+          <p>{s.resumen}</p>
+          <a class="enlace" href={`/soluciones#${s.id}`}>Ver detalle</a>
+        </article>
+      ))}
+    </div>
+  </Seccion>
+
+  <!-- ============================================================ productos -->
+  <Seccion numero="02" rotulo="Productos propios" titulo="Circulemos y CiDi: el software con el que un organismo de tránsito opera de punta a punta." tono="tinte"
+    intro="Dos plataformas construidas en Colombia, en operación en entidades de dos países y mantenidas al día con la normativa.">
+    <div class="rejilla rejilla--2">
+      {productos.map((p) => (
+        <article class="tarjeta tarjeta--dato">
+          <div>
+            <span class="codigo">{p.marca}</span>
+            <h3>{p.lema}</h3>
+            <p>{p.resumen}</p>
+            <a class="enlace" href={`/productos#${p.id}`}>Conocer {p.nombre}</a>
+          </div>
+          <img src={p.imagen} alt="" width="120" height="120" loading="lazy" />
+        </article>
+      ))}
+    </div>
+  </Seccion>
+
+  <!-- ============================================================ Dato IA -->
+  <section class="seccion seccion--tinta">
+    <div class="contenedor dato-ia">
+      <div class="dato-ia__video">
+        <video controls muted playsinline preload="metadata" poster="/media/dato-poster.jpg" width="1280" height="720">
+          <source src="/media/dato.mp4" type="video/mp4" />
+          Tu navegador no reproduce video. <a href="/media/dato.mp4">Descarga el video de Dato</a>.
+        </video>
+      </div>
+      <div>
+        <div class="rotulo"><span>03</span><span aria-hidden="true">/</span><span>Dato IA</span></div>
+        <h2>Inteligencia artificial que analiza, entiende y actúa sobre la operación real.</h2>
+        <p>
+          Dato es el asistente inteligente de Data Tools: lee documentos de trámites, atiende consultas ciudadanas,
+          detecta inconsistencias en los datos y ejecuta tareas repetitivas. Lo implementamos por casos de uso, con
+          resultados medibles y con un sistema de gestión que toma la norma ISO/IEC 42001 como referencia.
+        </p>
+        <div class="acciones">
+          <a class="boton boton--claro" href="/dato-ia">Conocer Dato IA</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ casos -->
+  <Seccion numero="04" rotulo="Quiénes confían en nosotros" titulo="Entidades que operan con nuestras plataformas todos los días."
+    intro="Organismos de tránsito y de movilidad de Colombia y Perú. Los detalles de cada proyecto están en la página de casos.">
+    <div class="tabla-envoltura">
+      <table class="ficha clientes">
+        <thead><tr><th>Entidad</th><th>Lugar</th><th>Línea de trabajo</th><th>Producto</th></tr></thead>
+        <tbody>
+          {casos.clientes.map((c) => (
+            <tr><td>{c.entidad}</td><td>{c.lugar}</td><td>{c.linea}</td><td>{c.producto}</td></tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <div class="acciones">
+      <a class="boton boton--secundario" href="/casos">Ver casos y cifras</a>
+    </div>
+  </Seccion>
+
+  <!-- ============================================================ respaldo -->
+  <Seccion numero="05" rotulo="Respaldo" titulo="Una empresa establecida, con procesos certificables y equipo propio." tono="blanca">
+    <dl class="definiciones">
+      <div><dt>Trayectoria</dt><dd>Fundada en {sitio.fundacion} en Bogotá. Parte de las 900 empresas más grandes de Colombia según la revista Semana.</dd></div>
+      <div><dt>Equipo propio</dt><dd>85 profesionales certificados en infraestructura, nube, seguridad, desarrollo, datos y gestión de proyectos. Sin intermediarios.</dd></div>
+      <div><dt>Sistema Integrado de Gestión</dt><dd>Procesos documentados, auditados y con indicadores, bajo una política de calidad, seguridad de la información y ética publicada.</dd></div>
+      <div><dt>Gobierno de la inteligencia artificial</dt><dd>Construimos nuestro sistema de gestión de IA con la norma ISO/IEC 42001 como referencia: uso responsable, trazable y con supervisión humana.</dd></div>
+    </dl>
+  </Seccion>
+
+  <!-- ============================================================ preguntas -->
+  <Seccion numero="06" rotulo="Preguntas frecuentes" titulo="Lo que nos preguntan antes de empezar." tono="tinte">
+    <Faq items={faq} />
+  </Seccion>
+
+  <CtaFinal />
+</Base>
+
+<style>
+  .portada { padding: clamp(48px, 7vw, 88px) 0 clamp(80px, 9vw, 120px); border-bottom: 1px solid var(--linea); }
+  .portada__rejilla { display: grid; grid-template-columns: 1.25fr 1fr; gap: 40px; align-items: center; }
+  .portada__texto h1 { max-width: 20ch; }
+  .portada__texto .grande { max-width: 58ch; }
+  .portada__sellos { list-style: none; padding: 0; margin: 28px 0 0; display: flex; flex-wrap: wrap; gap: 8px 24px; font-family: var(--mono); font-size: .8rem; color: var(--gris); letter-spacing: .04em; text-transform: uppercase; }
+  .portada__sellos li::before { content: "■ "; color: var(--teal); }
+  .portada__figura { position: relative; display: flex; justify-content: center; }
+  .portada__figura img { width: min(100%, 380px); height: auto; filter: drop-shadow(0 18px 28px rgba(11,42,74,.22)); }
+  .portada__etiqueta { position: absolute; bottom: -8px; right: 8px; font-size: .72rem; color: var(--gris); letter-spacing: .06em; text-transform: uppercase; background: var(--blanco); padding: 4px 8px; border: 1px solid var(--linea); }
+  .cifras-portada { margin-top: -44px; position: relative; z-index: 2; }
+  .dato-ia { display: grid; grid-template-columns: 1.1fr 1fr; gap: 48px; align-items: center; }
+  .dato-ia__video video { width: 100%; border-radius: var(--radio); border: 1px solid rgba(255,255,255,.18); box-shadow: 0 24px 48px -24px rgba(0,0,0,.6); background: #000; }
+  table.clientes td:first-child { width: 34%; }
+  @media (max-width: 900px) {
+    .portada__rejilla { grid-template-columns: 1fr; }
+    .portada__figura { order: -1; }
+    .portada__figura img { width: 220px; }
+    .dato-ia { grid-template-columns: 1fr; }
+  }
+</style>

@@ -1,0 +1,100 @@
+---
+import Base from '../layouts/Base.astro';
+import Seccion from '../components/Seccion.astro';
+import CtaFinal from '../components/CtaFinal.astro';
+
+const capacidades = [
+  { codigo: 'IA-01', nombre: 'Lectura de documentos y placas', imagen: '/media/dato-analiza.webp', texto: 'Visión artificial y reconocimiento óptico de caracteres para leer documentos de trámites, formularios, placas y soportes; extrae los datos, los valida contra las reglas del proceso y deja el expediente listo para el funcionario.' },
+  { codigo: 'IA-02', nombre: 'Asistentes para funcionarios y ciudadanos', imagen: '/media/dato-asistente.webp', texto: 'Asistentes conversacionales que responden con la normativa y los datos de la entidad: estado de un trámite, requisitos, citas, liquidaciones. Con supervisión humana y trazabilidad de cada respuesta.' },
+  { codigo: 'IA-03', nombre: 'Agentes que ejecutan tareas', imagen: '/media/dato-optimiza.webp', texto: 'Agentes que toman una tarea completa de la operación, como conciliar pagos, cruzar bases o preparar un informe, la ejecutan paso a paso y entregan el resultado con evidencia para revisión.' },
+  { codigo: 'IA-04', nombre: 'Automatización de procesos repetitivos', imagen: '/media/dato-valor.webp', texto: 'Robots de software que eliminan la digitación y los reprocesos entre sistemas que no conversan entre sí, con registro de cada ejecución y alertas cuando algo se sale de lo esperado.' },
+];
+
+const usos = [
+  ['Migración y depuración de datos', 'Detección de duplicados, inconsistencias y registros incompletos antes de migrar bases históricas a una plataforma nueva.'],
+  ['Atención ciudadana asistida', 'Respuestas inmediatas sobre requisitos y estado de trámites en canales digitales, con escalamiento a un funcionario cuando hace falta.'],
+  ['Validación documental en ventanilla', 'Lectura automática de los soportes del trámite y verificación contra las reglas del proceso mientras el ciudadano espera.'],
+  ['Tableros e informes gerenciales', 'Informes de operación y de cumplimiento generados con los datos de las plataformas, listos para el comité o el ente de control.'],
+  ['Mesa de servicios', 'Clasificación y priorización automática de casos, con propuestas de solución para el agente.'],
+];
+
+const principios = [
+  ['Casos de uso, no promesas', 'Cada implementación empieza por un problema medible: tiempo, errores, costo. Si no se mide, no se implementa.'],
+  ['Supervisión humana', 'La inteligencia artificial propone y prepara; la decisión que afecta a un ciudadano la toma una persona con la evidencia a la vista.'],
+  ['Datos protegidos', 'Los datos personales se tratan conforme a la Ley 1581 de 2012: minimización, control de acceso por rol y registro de uso.'],
+  ['Trazabilidad', 'Cada salida de la IA queda registrada con su fuente y su versión, para auditar qué se hizo y por qué.'],
+  ['Gestión conforme a ISO/IEC 42001', 'Construimos nuestro sistema de gestión de inteligencia artificial con la norma como referencia: roles, riesgos, evaluación de impacto y mejora continua.'],
+];
+---
+<Base titulo="Dato IA" descripcion="Dato IA es la línea de inteligencia artificial aplicada de Data Tools: lectura de documentos, asistentes, agentes y automatización, con supervisión humana y gestión conforme a ISO/IEC 42001." imagen="/media/dato-poster.jpg">
+
+  <section class="seccion seccion--tinta portada-dato">
+    <div class="contenedor portada-dato__rejilla">
+      <div>
+        <div class="rotulo"><span>Dato IA</span><span aria-hidden="true">/</span><span>Analiza · Entiende · Actúa</span></div>
+        <h1>Inteligencia artificial que trabaja dentro de la operación, no al lado de ella.</h1>
+        <p class="grande" style="color:#c7d6e3">
+          Dato es el asistente inteligente de Data Tools. Lee, responde, ejecuta y automatiza sobre los datos y los procesos reales de la entidad, con supervisión humana y resultados que se pueden medir.
+        </p>
+        <div class="acciones">
+          <a class="boton boton--claro" href="/contacto?tema=dato-ia">Explorar un caso de uso</a>
+          <a class="boton boton--borde-claro" href="#capacidades">Ver capacidades</a>
+        </div>
+      </div>
+      <div class="portada-dato__video">
+        <video controls muted playsinline preload="metadata" poster="/media/dato-poster.jpg" width="1280" height="720">
+          <source src="/media/dato.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </div>
+  </section>
+
+  <Seccion id="capacidades" numero="01" rotulo="Capacidades" titulo="Cuatro formas en que Dato entra a la operación.">
+    <div class="rejilla rejilla--2">
+      {capacidades.map((c) => (
+        <article class="tarjeta tarjeta--dato">
+          <div>
+            <span class="codigo">{c.codigo}</span>
+            <h3>{c.nombre}</h3>
+            <p>{c.texto}</p>
+          </div>
+          <img src={c.imagen} alt="" width="120" height="120" loading="lazy" />
+        </article>
+      ))}
+    </div>
+  </Seccion>
+
+  <Seccion numero="02" rotulo="Casos de uso" titulo="Dónde ya tiene sentido aplicarla en un organismo de tránsito o en una operación tercerizada." tono="tinte">
+    <div class="tabla-envoltura">
+      <table class="ficha">
+        <thead><tr><th>Caso de uso</th><th>Qué hace</th></tr></thead>
+        <tbody>{usos.map(([n, t]) => <tr><td>{n}</td><td>{t}</td></tr>)}</tbody>
+      </table>
+    </div>
+  </Seccion>
+
+  <Seccion numero="03" rotulo="Principios" titulo="Cómo usamos la inteligencia artificial." tono="blanca">
+    <dl class="definiciones">
+      {principios.map(([n, t]) => <div><dt>{n}</dt><dd>{t}</dd></div>)}
+    </dl>
+  </Seccion>
+
+  <Seccion numero="04" rotulo="Cómo empezamos" titulo="Un piloto de ocho semanas con una meta numérica.">
+    <div class="rejilla rejilla--4">
+      <article class="tarjeta"><span class="codigo">Semanas 1 y 2</span><h3>Elegir el caso</h3><p>Seleccionamos con la entidad un proceso con volumen y dolor claros, y definimos la meta: minutos por trámite, errores por mil, casos atendidos.</p></article>
+      <article class="tarjeta"><span class="codigo">Semanas 3 a 5</span><h3>Construir y probar</h3><p>Conectamos los datos, configuramos el asistente o el agente y lo probamos con casos reales bajo supervisión del equipo de la entidad.</p></article>
+      <article class="tarjeta"><span class="codigo">Semanas 6 y 7</span><h3>Medir</h3><p>Operamos en paralelo con el proceso actual y comparamos resultados con la meta definida. Sin cifras no hay paso siguiente.</p></article>
+      <article class="tarjeta"><span class="codigo">Semana 8</span><h3>Decidir</h3><p>Con los resultados en la mano, la entidad decide si pasa a producción, ajusta o detiene. Entregamos el informe y el plan.</p></article>
+    </div>
+  </Seccion>
+
+  <CtaFinal titulo="¿Tienes un proceso que se está comiendo el tiempo de tu equipo?" texto="Cuéntanoslo. En una sesión de diagnóstico te decimos si la inteligencia artificial le sirve, cuánto podría ahorrar y cómo lo mediríamos." imagen="/media/dato-idea-recorte.webp" />
+</Base>
+
+<style>
+  .portada-dato { padding: clamp(48px, 7vw, 88px) 0; }
+  .portada-dato__rejilla { display: grid; grid-template-columns: 1fr 1.1fr; gap: 48px; align-items: center; }
+  .portada-dato h1 { color: #fff; max-width: 22ch; }
+  .portada-dato__video video { width: 100%; border-radius: var(--radio); border: 1px solid rgba(255,255,255,.18); box-shadow: 0 24px 48px -24px rgba(0,0,0,.6); background: #000; }
+  @media (max-width: 900px) { .portada-dato__rejilla { grid-template-columns: 1fr; } }
+</style>

@@ -1,0 +1,25 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base titulo="Página no encontrada" descripcion="La página que buscas no existe o cambió de dirección.">
+  <section class="seccion cuadricula" style="min-height:60vh;display:flex;align-items:center">
+    <div class="contenedor no-encontrada">
+      <img src="/media/dato-duda-recorte.webp" alt="Dato se rasca la cabeza, confundido" width="220" height="240" />
+      <div>
+        <div class="rotulo"><span>Error 404</span></div>
+        <h1>Esta página no existe o cambió de dirección.</h1>
+        <p class="grande">Puede que el enlace sea antiguo. Estas rutas te llevan a lo que probablemente buscas.</p>
+        <div class="acciones">
+          <a class="boton" href="/">Inicio</a>
+          <a class="boton boton--secundario" href="/soluciones">Soluciones</a>
+          <a class="boton boton--secundario" href="/contacto">Contacto</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+<style>
+  .no-encontrada { display: grid; grid-template-columns: 220px 1fr; gap: 40px; align-items: center; }
+  .no-encontrada img { width: 220px; height: auto; }
+  @media (max-width: 720px) { .no-encontrada { grid-template-columns: 1fr; } .no-encontrada img { width: 160px; } }
+</style>

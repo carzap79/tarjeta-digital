@@ -1,0 +1,24 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base titulo="Mensaje recibido" descripcion="Recibimos tu mensaje. Un asesor de Data Tools te contactará en el siguiente día hábil.">
+  <section class="seccion cuadricula" style="min-height:60vh;display:flex;align-items:center">
+    <div class="contenedor gracias">
+      <img src="/media/dato-celebra-recorte.webp" alt="Dato celebra" width="220" height="270" />
+      <div>
+        <div class="rotulo"><span>Mensaje recibido</span></div>
+        <h1>Gracias. Ya tenemos tu mensaje.</h1>
+        <p class="grande">Un asesor de Data Tools lo revisa y te contacta en el siguiente día hábil. Si es urgente, llámanos al PBX +57 (601) 244 19 29.</p>
+        <div class="acciones">
+          <a class="boton" href="/">Volver al inicio</a>
+          <a class="boton boton--secundario" href="/casos">Ver casos mientras tanto</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+<style>
+  .gracias { display: grid; grid-template-columns: 220px 1fr; gap: 40px; align-items: center; }
+  .gracias img { width: 220px; height: auto; filter: drop-shadow(0 12px 20px rgba(11,42,74,.2)); }
+  @media (max-width: 720px) { .gracias { grid-template-columns: 1fr; } .gracias img { width: 160px; } }
+</style>

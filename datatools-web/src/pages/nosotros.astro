@@ -1,0 +1,130 @@
+---
+import Base from '../layouts/Base.astro';
+import Seccion from '../components/Seccion.astro';
+import CtaFinal from '../components/CtaFinal.astro';
+import sitio from '../data/sitio.json';
+
+const anios = new Date().getFullYear() - sitio.fundacion;
+
+const valores = [
+  ['Integridad', 'Hacemos lo que decimos y lo dejamos por escrito: alcances, compromisos y resultados.'],
+  ['Servicio', 'El ciudadano en la ventanilla y el funcionario detrás del sistema son la razón de cada línea de código.'],
+  ['Calidad', 'Procesos documentados, medidos y auditados; corregimos la causa, no el síntoma.'],
+  ['Innovación con criterio', 'Adoptamos tecnología cuando resuelve un problema real y se puede operar con seguridad.'],
+  ['Compromiso', 'Operamos 7×24 porque la ciudad no se detiene; respondemos cuando más se necesita.'],
+];
+
+const hitos = [
+  ['1997', 'Fundación de Data Tools en Bogotá, con foco en soluciones informáticas para organismos de tránsito.'],
+  ['2000 a 2010', 'Circulemos se consolida como plataforma para el registro automotor, de conductores y el control de infractores; primeras integraciones con los sistemas nacionales.'],
+  ['2010 a 2020', 'Crecen las líneas de operación tecnológica y de procesos de negocio; la compañía entra en el listado de las 900 empresas más grandes de Colombia de la revista Semana.'],
+  ['2020 en adelante', 'Operación en Colombia y Perú, nube y seguridad 7×24, CiDi para contravenciones y cartera, y el nacimiento de Dato IA.'],
+];
+---
+<Base titulo="Nosotros" descripcion="Data Tools S.A.S: quiénes somos, misión, visión, valores y sistema integrado de gestión. Desde 1997 diseñamos y operamos soluciones tecnológicas para organismos de tránsito y entidades en Colombia y Perú.">
+
+  <section class="portada-interna cuadricula">
+    <div class="contenedor portada-nosotros">
+      <div>
+        <div class="rotulo"><span>Nosotros</span><span aria-hidden="true">/</span><span>Desde {sitio.fundacion}</span></div>
+        <h1>{anios} años construyendo y operando la tecnología de las entidades que atienden a la gente.</h1>
+        <p class="grande">Somos una empresa colombiana de tecnología con equipo propio, productos propios y una forma de trabajar que se puede auditar.</p>
+      </div>
+      <img src="/media/dato-corazon-recorte.webp" alt="Dato forma un corazón con las manos" width="300" height="360" loading="eager" />
+    </div>
+  </section>
+
+  <Seccion numero="01" rotulo="Quiénes somos" titulo="Diseño, desarrollo, implementación, operación y soporte de soluciones informáticas.">
+    <div class="dos-columnas">
+      <p class="grande">
+        Data Tools S.A.S es una empresa dedicada al diseño, desarrollo, implementación, administración, soporte técnico y
+        servicios de procesos de negocio de soluciones informáticas para la gestión de registros automotores, conductores,
+        infractores, gestión documental, patios, grúas, gestión de cartera, procesamiento de datos, transformación digital y
+        atención al cliente, para organismos de tránsito y entidades de apoyo al tránsito.
+      </p>
+      <p>
+        Somos parte de las 900 empresas más grandes de Colombia según la revista Semana y contamos con un equipo de 85
+        profesionales certificados que garantizan un servicio adecuado y oportuno. Operamos en Colombia y Perú, con la
+        capacidad para atender al resto de Latinoamérica.
+      </p>
+    </div>
+  </Seccion>
+
+  <Seccion numero="02" rotulo="Misión y visión" tono="tinta">
+    <div class="rejilla rejilla--2">
+      <article class="bloque-mv">
+        <span class="mono">Misión</span>
+        <p>Transformamos negocios mediante soluciones y servicios tecnológicos innovadores, impulsados por un equipo calificado, garantizando seguridad, calidad y agilidad.</p>
+      </article>
+      <article class="bloque-mv">
+        <span class="mono">Visión</span>
+        <p>Para el año 2030, ser reconocidos como referente de transformación digital de negocios en Latinoamérica, generando valor y potenciando la competitividad de nuestros clientes.</p>
+      </article>
+    </div>
+  </Seccion>
+
+  <Seccion numero="03" rotulo="Valores" titulo="Lo que se nota en la operación diaria.">
+    <dl class="definiciones">
+      {valores.map(([n, t]) => <div><dt>{n}</dt><dd>{t}</dd></div>)}
+    </dl>
+  </Seccion>
+
+  <Seccion numero="04" rotulo="Trayectoria" titulo="Casi tres décadas al lado de los organismos de tránsito." tono="tinte">
+    <ol class="linea-tiempo">
+      {hitos.map(([a, t]) => <li><span class="mono">{a}</span><p>{t}</p></li>)}
+    </ol>
+  </Seccion>
+
+  <Seccion id="sig" numero="05" rotulo="Sistema Integrado de Gestión" titulo="Procesos que se pueden auditar." tono="blanca">
+    <div class="rejilla rejilla--3">
+      <article class="tarjeta">
+        <span class="marca" aria-hidden="true"></span>
+        <h3>Alcance</h3>
+        <p>Diseño, desarrollo, implementación, operación y soporte de soluciones informáticas y servicios de procesos de negocio para organismos de tránsito, entidades públicas y empresas.</p>
+      </article>
+      <article class="tarjeta">
+        <span class="marca" aria-hidden="true"></span>
+        <h3>Política</h3>
+        <p>Nos comprometemos con la satisfacción de nuestros clientes, la seguridad de la información, la salud y seguridad de nuestro equipo, el cumplimiento normativo y la mejora continua de nuestros procesos.</p>
+      </article>
+      <article class="tarjeta" id="etica">
+        <span class="marca" aria-hidden="true"></span>
+        <h3>Código de ética</h3>
+        <p>Actuamos con transparencia frente a clientes, proveedores y autoridades; rechazamos cualquier forma de corrupción y protegemos la información que se nos confía. El código completo está disponible para clientes y aliados.</p>
+      </article>
+    </div>
+    <p class="pie-nota" style="margin-top:16px">Los textos oficiales de alcance, política y código de ética se publican aquí una vez aprobados por la Dirección General.</p>
+  </Seccion>
+
+  <Seccion numero="06" rotulo="Dato" titulo="El asistente que representa cómo trabajamos.">
+    <div class="conoce-dato">
+      <img src="/media/dato-asistente.webp" alt="Dato, tu asistente inteligente para tomar mejores decisiones" width="300" height="300" loading="lazy" />
+      <div>
+        <p class="grande">Dato nació como la cara de nuestra línea de inteligencia artificial y terminó representando a toda la compañía: analiza, entiende y actúa. Aparece en nuestras plataformas, en la comunicación con los clientes y en la formación del equipo.</p>
+        <p>Su lema, «todo en conexión», resume la idea de Data Tools: personas, procesos y tecnología trabajando como una sola operación.</p>
+        <a class="boton boton--secundario" href="/dato-ia">Conocer Dato IA</a>
+      </div>
+    </div>
+  </Seccion>
+
+  <CtaFinal titulo="¿Quieres conocernos en persona?" texto="Visítanos en Bogotá o agenda una videollamada con nuestro equipo directivo. Con gusto te mostramos cómo operamos." imagen="/media/dato-corazon-recorte.webp" />
+</Base>
+
+<style>
+  .portada-interna { padding: clamp(40px, 6vw, 72px) 0; border-bottom: 1px solid var(--linea); }
+  .portada-nosotros { display: grid; grid-template-columns: 1.4fr 1fr; gap: 32px; align-items: center; }
+  .portada-nosotros h1 { max-width: 24ch; }
+  .portada-nosotros img { width: min(100%, 260px); justify-self: center; filter: drop-shadow(0 16px 24px rgba(11,42,74,.2)); }
+  .dos-columnas { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; }
+  .bloque-mv { border: 1px solid rgba(255,255,255,.18); border-radius: var(--radio); padding: 28px; background: rgba(255,255,255,.04); }
+  .bloque-mv .mono { color: #7fd6d6; letter-spacing: .08em; text-transform: uppercase; font-size: .8rem; }
+  .bloque-mv p { font-size: 1.15rem; color: #fff; margin: 12px 0 0; }
+  .linea-tiempo { list-style: none; padding: 0; margin: 0; display: grid; gap: 0; border-left: 2px solid var(--teal); }
+  .linea-tiempo li { padding: 0 0 22px 24px; position: relative; }
+  .linea-tiempo li::before { content: ""; position: absolute; left: -7px; top: 6px; width: 12px; height: 12px; background: var(--teal); border-radius: 50%; border: 2px solid var(--tinte); }
+  .linea-tiempo .mono { color: var(--teal-oscuro); font-weight: 500; font-size: .9rem; }
+  .linea-tiempo p { margin: 4px 0 0; max-width: 70ch; }
+  .conoce-dato { display: grid; grid-template-columns: 300px 1fr; gap: 40px; align-items: center; }
+  .conoce-dato img { width: 300px; height: 300px; object-fit: cover; border-radius: var(--radio); border: 1px solid var(--linea); }
+  @media (max-width: 900px) { .portada-nosotros, .dos-columnas, .conoce-dato { grid-template-columns: 1fr; } .portada-nosotros img { order: -1; width: 180px; } .conoce-dato img { width: 100%; max-width: 300px; } }
+</style>

@@ -1,0 +1,65 @@
+---
+import Base from '../layouts/Base.astro';
+import Seccion from '../components/Seccion.astro';
+import CtaFinal from '../components/CtaFinal.astro';
+import casos from '../data/casos.json';
+---
+<Base titulo="Casos" descripcion="Entidades de Colombia y Perú que operan con las plataformas y servicios de Data Tools: líneas de trabajo, alcance y cifras de operación.">
+
+  <section class="portada-interna cuadricula">
+    <div class="contenedor">
+      <div class="rotulo"><span>Casos</span></div>
+      <h1>Entidades que operan con nosotros todos los días.</h1>
+      <p class="grande">No mostramos promesas: mostramos dónde está funcionando la tecnología, qué hace y con qué resultados. Cada caso puede ampliarse en una reunión con referencias verificables.</p>
+    </div>
+  </section>
+
+  <Seccion numero="C-01" rotulo="Cifras de operación" titulo="Lo que sostienen nuestras plataformas y equipos.">
+    <div class="cifras">
+      {casos.cifras.map((c) => <div class="cifra"><strong>{c.valor}</strong><span>{c.texto}</span></div>)}
+    </div>
+    <p class="pie-nota" style="margin-top:12px">Cifras de la operación de Data Tools; se actualizan con el cierre de cada año.</p>
+  </Seccion>
+
+  <Seccion numero="C-02" rotulo="Clientes" titulo="Organismos de tránsito y movilidad en Colombia y Perú." tono="tinte">
+    <div class="rejilla rejilla--3">
+      {casos.clientes.map((c) => (
+        <article class="tarjeta">
+          <span class="codigo">{c.lugar}</span>
+          <span class="marca" aria-hidden="true"></span>
+          <h3>{c.entidad}</h3>
+          <p>{c.linea}</p>
+          <p class="mono" style="font-size:.8rem;color:var(--teal-oscuro)">{c.producto}</p>
+        </article>
+      ))}
+    </div>
+  </Seccion>
+
+  <Seccion numero="C-03" rotulo="Líneas de trabajo" titulo="Qué hacemos en cada proyecto." tono="blanca">
+    <div class="tabla-envoltura">
+      <table class="ficha">
+        <thead><tr><th>Línea</th><th>Qué resuelve</th><th>Alcance</th></tr></thead>
+        <tbody>
+          {casos.lineas.map((l) => <tr><td>{l.nombre}</td><td>{l.que}</td><td class="mono" style="font-size:.85rem">{l.alcance}</td></tr>)}
+        </tbody>
+      </table>
+    </div>
+  </Seccion>
+
+  <Seccion numero="C-04" rotulo="Sectores" titulo="Donde aplicamos la misma disciplina de operación.">
+    <ul class="sectores">
+      {casos.sectores.map((s) => <li>{s}</li>)}
+    </ul>
+  </Seccion>
+
+  <CtaFinal titulo="¿Quieres hablar con una entidad que ya opera con nosotros?" texto="Con gusto coordinamos una referencia directa con el equipo de la entidad y te mostramos la plataforma funcionando." imagen="/media/dato-celebra-recorte.webp" />
+</Base>
+
+<style>
+  .portada-interna { padding: clamp(40px, 6vw, 72px) 0; border-bottom: 1px solid var(--linea); }
+  .portada-interna h1 { max-width: 24ch; }
+  .portada-interna .grande { max-width: 62ch; }
+  .sectores { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+  .sectores li { border: 1px solid var(--linea); background: var(--blanco); padding: 10px 16px; border-radius: 4px; font-weight: 500; color: var(--tinta); }
+  .sectores li::before { content: "■ "; color: var(--teal); }
+</style>

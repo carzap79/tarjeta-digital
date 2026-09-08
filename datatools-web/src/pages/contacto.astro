@@ -1,0 +1,153 @@
+---
+import Base from '../layouts/Base.astro';
+import sitio from '../data/sitio.json';
+
+const temas = [
+  ['general', 'Consulta general'],
+  ['movilidad', 'Movilidad y tránsito'],
+  ['circulemos', 'Circulemos (demostración)'],
+  ['cidi', 'CiDi (demostración)'],
+  ['operacion', 'Operación tecnológica 7×24'],
+  ['procesos', 'Procesos de negocio'],
+  ['documental', 'Gestión documental'],
+  ['datos', 'Datos y analítica'],
+  ['dato-ia', 'Dato IA'],
+  ['salud', 'Salud'],
+  ['proveedores', 'Proveedores y aliados'],
+  ['talento', 'Trabajar en Data Tools'],
+];
+---
+<Base titulo="Contacto" descripcion="Escríbenos o llámanos. Un asesor de Data Tools te responde con una propuesta concreta. Bogotá, Colombia.">
+
+  <section class="portada-interna cuadricula">
+    <div class="contenedor">
+      <div class="rotulo"><span>Contacto</span></div>
+      <h1>Cuéntanos qué necesitas. Te respondemos con una propuesta, no con un folleto.</h1>
+      <p class="grande">Un asesor revisa tu mensaje y te contacta en el siguiente día hábil.</p>
+    </div>
+  </section>
+
+  <section class="seccion">
+    <div class="contenedor contacto">
+      <form class="formulario" method="post" action="/api/contacto" id="formulario-contacto" novalidate>
+        <div id="mensaje-estado" class="aviso" hidden></div>
+
+        <div class="fila">
+          <label>Nombre completo <span class="ayuda">obligatorio</span>
+            <input type="text" name="nombre" required autocomplete="name" maxlength="120" />
+          </label>
+          <label>Entidad o empresa
+            <input type="text" name="entidad" autocomplete="organization" maxlength="120" />
+          </label>
+        </div>
+        <div class="fila">
+          <label>Correo electrónico <span class="ayuda">obligatorio</span>
+            <input type="email" name="correo" required autocomplete="email" maxlength="120" />
+          </label>
+          <label>Teléfono
+            <input type="tel" name="telefono" autocomplete="tel" maxlength="30" />
+          </label>
+        </div>
+        <label>Tema
+          <select name="tema" id="tema">
+            {temas.map(([v, t]) => <option value={v}>{t}</option>)}
+          </select>
+        </label>
+        <label>Mensaje <span class="ayuda">obligatorio · cuéntanos el proceso, la entidad y qué quieres lograr</span>
+          <textarea name="mensaje" required maxlength="3000"></textarea>
+        </label>
+
+        <!-- trampa para robots: los humanos no la ven ni la llenan -->
+        <div class="visualmente-oculto" aria-hidden="true">
+          <label>Deja este campo vacío <input type="text" name="sitio_web" tabindex="-1" autocomplete="off" /></label>
+        </div>
+
+        <label class="consentimiento">
+          <input type="checkbox" name="autorizacion" required value="si" />
+          <span>Autorizo a Data Tools S.A.S el tratamiento de mis datos personales para atender esta solicitud, conforme a la <a href="/privacidad">política de privacidad</a> y la Ley 1581 de 2012.</span>
+        </label>
+
+        <div class="acciones" style="margin-top:8px">
+          <button class="boton" type="submit" id="boton-enviar">Enviar mensaje</button>
+          <span class="pie-nota">Sin costo y sin compromiso.</span>
+        </div>
+      </form>
+
+      <aside class="contacto__datos">
+        <div class="tarjeta">
+          <span class="marca" aria-hidden="true"></span>
+          <h3>Sede principal</h3>
+          <address>
+            {sitio.contacto.direccion}<br />{sitio.contacto.ciudad}
+          </address>
+          <a href={sitio.contacto.mapa} rel="noopener" target="_blank">Ver en el mapa</a>
+        </div>
+        <div class="tarjeta">
+          <span class="marca" aria-hidden="true"></span>
+          <h3>Teléfono</h3>
+          <p><a href={sitio.contacto.pbxEnlace}>PBX {sitio.contacto.pbx}</a></p>
+          <p class="pie-nota">{sitio.contacto.horario}</p>
+        </div>
+        {sitio.contacto.correo && (
+          <div class="tarjeta">
+            <span class="marca" aria-hidden="true"></span>
+            <h3>Correo</h3>
+            <p><a href={`mailto:${sitio.contacto.correo}`}>{sitio.contacto.correo}</a></p>
+          </div>
+        )}
+        <img src="/media/dato-idea-recorte.webp" alt="Dato tiene una idea" width="240" height="280" loading="lazy" class="contacto__dato" />
+      </aside>
+    </div>
+  </section>
+</Base>
+
+<script>
+  // Preselecciona el tema si viene en la URL (/contacto?tema=cidi)
+  const params = new URLSearchParams(location.search);
+  const tema = params.get('tema');
+  const select = document.getElementById('tema') as HTMLSelectElement | null;
+  if (tema && select && [...select.options].some((o) => o.value === tema)) select.value = tema;
+
+  // Envío sin recargar la página; si falla el JS, el formulario se envía igual por POST.
+  const form = document.getElementById('formulario-contacto') as HTMLFormElement | null;
+  const estado = document.getElementById('mensaje-estado') as HTMLDivElement | null;
+  const boton = document.getElementById('boton-enviar') as HTMLButtonElement | null;
+  const mostrar = (texto: string, tipo: 'ok' | 'error') => {
+    if (!estado) return;
+    estado.textContent = texto;
+    estado.className = `aviso aviso--${tipo}`;
+    estado.hidden = false;
+    estado.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  };
+  form?.addEventListener('submit', async (e) => {
+    if (!form.checkValidity()) return; // deja que el navegador muestre los campos faltantes
+    e.preventDefault();
+    if (boton) { boton.disabled = true; boton.textContent = 'Enviando…'; }
+    try {
+      const r = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
+      const datos = await r.json().catch(() => ({}));
+      if (r.ok && datos.ok) {
+        form.reset();
+        mostrar('Recibimos tu mensaje. Un asesor te contactará en el siguiente día hábil.', 'ok');
+      } else {
+        mostrar(datos.error || 'No pudimos enviar el mensaje. Llámanos al PBX o inténtalo de nuevo en unos minutos.', 'error');
+      }
+    } catch {
+      mostrar('No pudimos enviar el mensaje. Llámanos al PBX o inténtalo de nuevo en unos minutos.', 'error');
+    } finally {
+      if (boton) { boton.disabled = false; boton.textContent = 'Enviar mensaje'; }
+    }
+  });
+</script>
+
+<style>
+  .portada-interna { padding: clamp(40px, 6vw, 72px) 0; border-bottom: 1px solid var(--linea); }
+  .portada-interna h1 { max-width: 26ch; }
+  .contacto { display: grid; grid-template-columns: 1.4fr 1fr; gap: 40px; align-items: start; }
+  .contacto__datos { display: grid; gap: 16px; }
+  .contacto__datos address { font-style: normal; }
+  .contacto__dato { width: 200px; justify-self: center; margin-top: 8px; filter: drop-shadow(0 12px 20px rgba(11,42,74,.18)); }
+  .consentimiento { display: grid; grid-template-columns: 22px 1fr; gap: 10px; align-items: start; font-weight: 400 !important; color: var(--gris) !important; font-size: .92rem !important; }
+  .consentimiento input { width: 18px; height: 18px; margin-top: 3px; }
+  @media (max-width: 900px) { .contacto { grid-template-columns: 1fr; } }
+</style>
