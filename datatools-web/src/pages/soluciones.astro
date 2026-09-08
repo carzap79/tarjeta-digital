@@ -1,0 +1,61 @@
+---
+import Base from '../layouts/Base.astro';
+import Seccion from '../components/Seccion.astro';
+import CtaFinal from '../components/CtaFinal.astro';
+import Ficha from '../components/Ficha.astro';
+import soluciones from '../data/soluciones.json';
+---
+<Base titulo="Soluciones" descripcion="Seis líneas de servicio de Data Tools: movilidad y tránsito, operación tecnológica 7×24, procesos de negocio, gestión documental, datos e inteligencia artificial, y salud.">
+
+  <section class="portada-interna cuadricula">
+    <div class="contenedor">
+      <div class="rotulo"><span>Soluciones</span></div>
+      <h1>Seis líneas de servicio que se pueden contratar solas o como una operación integral.</h1>
+      <p class="grande">Detrás de cada una hay método, indicadores publicados y un equipo propio que responde. Elige por dónde empezar.</p>
+      <nav class="indice" aria-label="Índice de soluciones">
+        {soluciones.map((s) => <a href={`#${s.id}`}><span class="mono">{s.codigo}</span> {s.nombre}</a>)}
+      </nav>
+    </div>
+  </section>
+
+  {soluciones.map((s, i) => (
+    <Seccion id={s.id} numero={s.codigo} rotulo="Línea de servicio" titulo={s.nombre} intro={s.resumen} tono={i % 2 === 0 ? 'papel' : 'tinte'}>
+      <div class="solucion">
+        <div class="solucion__texto">
+          <p class="grande">{s.descripcion}</p>
+          <h3>Qué incluye</h3>
+          <ul class="lista-marcas">
+            {s.incluye.map((x) => <li>{x}</li>)}
+          </ul>
+          <p class="solucion__para"><strong>Para quién:</strong> {s.paraQuien}</p>
+        </div>
+        <aside class="solucion__lateral">
+          <img src={s.imagen} alt="" width="220" height="220" loading="lazy" />
+          <Ficha titulo="Ficha técnica" filas={s.ficha} />
+          <a class="boton" href={`/contacto?tema=${s.id}`}>Consultar esta solución</a>
+        </aside>
+      </div>
+    </Seccion>
+  ))}
+
+  <CtaFinal titulo="¿No sabes cuál línea encaja con tu necesidad?" texto="Cuéntanos el problema, no el producto. Un asesor te ayuda a armar la combinación correcta y te entrega una propuesta con alcance y compromisos de servicio." />
+</Base>
+
+<style>
+  .portada-interna { padding: clamp(40px, 6vw, 72px) 0; border-bottom: 1px solid var(--linea); }
+  .portada-interna h1 { max-width: 24ch; }
+  .portada-interna .grande { max-width: 60ch; }
+  .indice { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+  .indice a { text-decoration: none; border: 1px solid var(--linea); background: var(--blanco); padding: 8px 12px; border-radius: 4px; color: var(--tinta); font-size: .92rem; }
+  .indice a:hover { border-color: var(--teal-oscuro); color: var(--teal-oscuro); }
+  .indice .mono { color: var(--teal-oscuro); font-size: .78rem; margin-right: 4px; }
+  .solucion { display: grid; grid-template-columns: 1.3fr 1fr; gap: 40px; align-items: start; }
+  .solucion__texto h3 { margin-top: 24px; }
+  .lista-marcas { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+  .lista-marcas li { padding-left: 22px; position: relative; }
+  .lista-marcas li::before { content: ""; position: absolute; left: 0; top: .55em; width: 10px; height: 10px; background: var(--teal); }
+  .solucion__para { margin-top: 20px; color: var(--gris); }
+  .solucion__lateral { display: grid; gap: 16px; position: sticky; top: 90px; }
+  .solucion__lateral img { width: 200px; height: 200px; object-fit: contain; justify-self: end; border-radius: var(--radio); border: 1px solid var(--linea); background: #fff; }
+  @media (max-width: 900px) { .solucion { grid-template-columns: 1fr; } .solucion__lateral { position: static; } .solucion__lateral img { justify-self: start; } }
+</style>

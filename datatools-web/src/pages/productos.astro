@@ -1,0 +1,63 @@
+---
+import Base from '../layouts/Base.astro';
+import Seccion from '../components/Seccion.astro';
+import CtaFinal from '../components/CtaFinal.astro';
+import Ficha from '../components/Ficha.astro';
+import productos from '../data/productos.json';
+---
+<Base titulo="Productos" descripcion="Circulemos y CiDi: las plataformas propias de Data Tools para operar organismos de tránsito, integradas con RUNT y SIMIT.">
+
+  <section class="portada-interna cuadricula">
+    <div class="contenedor">
+      <div class="rotulo"><span>Productos propios</span></div>
+      <h1>Dos plataformas construidas para la realidad de un organismo de tránsito.</h1>
+      <p class="grande">Circulemos cubre los trámites de vehículos, conductores y transporte; CiDi ordena las contravenciones, la cartera y el cobro. Juntas, operan la entidad de punta a punta.</p>
+    </div>
+  </section>
+
+  {productos.map((p, i) => (
+    <Seccion id={p.id} numero={`P-0${i + 1}`} rotulo={p.marca} titulo={p.lema} intro={p.resumen} tono={i % 2 === 0 ? 'papel' : 'tinte'}>
+      <div class="producto">
+        <div>
+          <p class="grande">{p.descripcion}</p>
+          <h3>Módulos</h3>
+          <div class="modulos">
+            {p.modulos.map((m, k) => (
+              <div class="modulo"><span class="mono">{String(k + 1).padStart(2, '0')}</span><span>{m}</span></div>
+            ))}
+          </div>
+        </div>
+        <aside class="producto__lateral">
+          <img src={p.imagen} alt={`Dato presenta ${p.nombre}`} width="260" height="300" loading="lazy" />
+          <Ficha titulo="Ficha técnica" filas={p.ficha} />
+          <a class="boton" href={`/contacto?tema=${p.id}`}>Solicitar una demostración</a>
+        </aside>
+      </div>
+    </Seccion>
+  ))}
+
+  <Seccion numero="P-03" rotulo="Cómo se implementan" titulo="Del diagnóstico a la operación estable en fases cortas y medibles." tono="blanca">
+    <div class="rejilla rejilla--4">
+      <article class="tarjeta"><span class="codigo">Fase 1</span><h3>Diagnóstico</h3><p>Levantamiento de procesos, sistemas actuales, datos históricos y normativa aplicable. Entregable: plan de implementación con alcance y cronograma.</p></article>
+      <article class="tarjeta"><span class="codigo">Fase 2</span><h3>Configuración y migración</h3><p>Parametrización de la plataforma, depuración y migración de datos con actas de cierre por bloque, integraciones con RUNT, SIMIT y pagos.</p></article>
+      <article class="tarjeta"><span class="codigo">Fase 3</span><h3>Salida a producción</h3><p>Capacitación por rol, acompañamiento en sitio, plan de estabilización con seguimiento diario y mesa de servicios activa desde el primer día.</p></article>
+      <article class="tarjeta"><span class="codigo">Fase 4</span><h3>Operación y evolución</h3><p>Monitoreo 7×24, indicadores mensuales, controles de cambio normativos y mejoras continuas acordadas con la entidad.</p></article>
+    </div>
+  </Seccion>
+
+  <CtaFinal titulo="¿Quieres ver Circulemos o CiDi funcionando con tus propios casos?" texto="Agenda una demostración con datos de ejemplo de tu entidad. En una sesión de una hora recorremos el trámite completo, del ciudadano al reporte gerencial." imagen="/media/dato-idea-recorte.webp" />
+</Base>
+
+<style>
+  .portada-interna { padding: clamp(40px, 6vw, 72px) 0; border-bottom: 1px solid var(--linea); }
+  .portada-interna h1 { max-width: 24ch; }
+  .portada-interna .grande { max-width: 62ch; }
+  .producto { display: grid; grid-template-columns: 1.3fr 1fr; gap: 40px; align-items: start; }
+  .producto h3 { margin-top: 20px; }
+  .modulos { display: grid; gap: 8px; }
+  .modulo { display: grid; grid-template-columns: 36px 1fr; gap: 10px; padding: 10px 12px; background: var(--blanco); border: 1px solid var(--linea); border-radius: 4px; }
+  .modulo .mono { color: var(--teal-oscuro); font-size: .85rem; padding-top: 2px; }
+  .producto__lateral { display: grid; gap: 16px; position: sticky; top: 90px; }
+  .producto__lateral img { width: 220px; height: auto; justify-self: center; filter: drop-shadow(0 12px 20px rgba(11,42,74,.2)); }
+  @media (max-width: 900px) { .producto { grid-template-columns: 1fr; } .producto__lateral { position: static; } }
+</style>
