@@ -35,6 +35,14 @@ npm run build      # genera dist/
 
 Requiere Node 20 o superior (el archivo `.node-version` fija la 22 para Cloudflare).
 
+## Vista previa en GitHub Pages (mientras no esté en Cloudflare)
+
+El repositorio `tarjeta-digital` ya se publica con GitHub Pages desde la rama `main`. Para mostrar el sitio nuevo sin
+configurar nada más, la salida construida se copia a la carpeta `sitio/` de `main` y queda en
+https://carzap79.github.io/tarjeta-digital/sitio/. La salida se prepara con `npm run build` y se adapta a esa ruta con
+`herramientas/ruta_base.py dist /tarjeta-digital/sitio` (reescribe los enlaces absolutos, marca las páginas `noindex` y
+retira robots.txt, sitemap.xml y _headers, que solo aplican al sitio real). En esa vista previa el formulario no envía correos.
+
 ## Desplegar en Cloudflare Pages (una sola vez)
 
 1. Sube este repositorio a GitHub.
