@@ -1,0 +1,78 @@
+---
+import sitio from '../data/sitio.json';
+import Logo from './Logo.astro';
+const anio = new Date().getFullYear();
+const internos = sitio.enlacesInternos.filter((e) => e.url);
+---
+<footer class="pie">
+  <div class="contenedor pie__rejilla">
+    <div class="pie__marca">
+      <Logo claro alto={32} />
+      <p>{sitio.descripcion}</p>
+      <p class="pie__desde mono">Bogotá, Colombia · desde {sitio.fundacion}</p>
+    </div>
+
+    <div>
+      <h3>Navegación</h3>
+      <ul>
+        <li><a href="/">Inicio</a></li>
+        {sitio.navegacion.map((n) => <li><a href={n.ruta}>{n.texto}</a></li>)}
+      </ul>
+    </div>
+
+    <div>
+      <h3>Soluciones</h3>
+      <ul>
+        <li><a href="/soluciones#movilidad">Movilidad y tránsito</a></li>
+        <li><a href="/soluciones#operacion">Operación tecnológica 7×24</a></li>
+        <li><a href="/soluciones#procesos">Procesos de negocio</a></li>
+        <li><a href="/soluciones#documental">Gestión documental</a></li>
+        <li><a href="/soluciones#datos">Datos, analítica e IA</a></li>
+        <li><a href="/soluciones#salud">Salud</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h3>Contacto</h3>
+      <address>
+        {sitio.contacto.direccion}<br />
+        {sitio.contacto.ciudad}<br />
+        PBX <a href={sitio.contacto.pbxEnlace}>{sitio.contacto.pbx}</a><br />
+        {sitio.contacto.correo && <a href={`mailto:${sitio.contacto.correo}`}>{sitio.contacto.correo}</a>}
+      </address>
+      <p class="pie__horario">{sitio.contacto.horario}</p>
+      {internos.length > 0 && (
+        <ul class="pie__internos">
+          {internos.map((e) => <li><a href={e.url} rel="noopener">{e.texto}</a></li>)}
+        </ul>
+      )}
+    </div>
+  </div>
+
+  <div class="contenedor pie__legal">
+    <span>© {anio} {sitio.nombre}. Todos los derechos reservados.</span>
+    <ul>
+      {sitio.legales.map((l) => <li><a href={l.ruta}>{l.texto}</a></li>)}
+      <li><a href="/nosotros#sig">Política del SIG</a></li>
+      <li><a href="/nosotros#etica">Código de ética</a></li>
+    </ul>
+  </div>
+</footer>
+
+<style>
+  .pie { background: var(--tinta); color: #c7d6e3; padding: 56px 0 28px; margin-top: auto; }
+  .pie__rejilla { display: grid; gap: 36px; grid-template-columns: 1.6fr 1fr 1fr 1.2fr; }
+  .pie h3 { color: var(--blanco); font-size: .95rem; letter-spacing: .06em; text-transform: uppercase; font-family: var(--mono); font-weight: 600; margin-bottom: 14px; }
+  .pie ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+  .pie a { color: #dbe7f0; text-decoration: none; }
+  .pie a:hover { color: var(--blanco); text-decoration: underline; }
+  .pie__marca p { margin: 16px 0 0; font-size: .95rem; max-width: 46ch; }
+  .pie__desde { color: #7fd6d6; font-size: .8rem; letter-spacing: .06em; text-transform: uppercase; }
+  address { font-style: normal; line-height: 1.7; }
+  .pie__horario { margin: 10px 0 0; font-size: .9rem; color: #9fb4c6; }
+  .pie__internos { margin-top: 14px; font-size: .9rem; }
+  .pie__legal { margin-top: 44px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.14); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 24px; font-size: .88rem; color: #9fb4c6; }
+  .pie__legal ul { display: flex; flex-wrap: wrap; gap: 8px 20px; }
+  @media (max-width: 960px) { .pie__rejilla { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px) { .pie__rejilla { grid-template-columns: 1fr; } }
+</style>

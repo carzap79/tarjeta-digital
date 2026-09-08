@@ -1,0 +1,68 @@
+---
+import '../styles/global.css';
+import Cabecera from '../components/Cabecera.astro';
+import Pie from '../components/Pie.astro';
+import sitio from '../data/sitio.json';
+
+interface Props {
+  titulo: string;
+  descripcion: string;
+  imagen?: string;
+}
+const { titulo, descripcion, imagen = '/media/dato-poster.jpg' } = Astro.props;
+const tituloCompleto = titulo === 'Inicio' ? `${sitio.nombre} — ${sitio.lema}` : `${titulo} · ${sitio.nombreCorto}`;
+const canonica = new URL(Astro.url.pathname, Astro.site ?? 'https://www.datatools.com.co').href;
+const imagenAbs = new URL(imagen, Astro.site ?? 'https://www.datatools.com.co').href;
+---
+<!doctype html>
+<html lang="es-CO">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{tituloCompleto}</title>
+    <meta name="description" content={descripcion} />
+    <link rel="canonical" href={canonica} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="theme-color" content="#0b2a4a" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={sitio.nombre} />
+    <meta property="og:title" content={tituloCompleto} />
+    <meta property="og:description" content={descripcion} />
+    <meta property="og:url" content={canonica} />
+    <meta property="og:image" content={imagenAbs} />
+    <meta property="og:locale" content="es_CO" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'Organization',
+      name: sitio.nombre,
+      url: Astro.site?.href ?? 'https://www.datatools.com.co',
+      foundingDate: String(sitio.fundacion),
+      address: { '@type': 'PostalAddress', streetAddress: sitio.contacto.direccion, addressLocality: 'Bogotá', addressCountry: 'CO' },
+      telephone: sitio.contacto.pbx,
+      areaServed: ['CO', 'PE'],
+    })} />
+  </head>
+  <body>
+    <a class="saltar" href="#contenido">Ir al contenido</a>
+    <Cabecera />
+    <main id="contenido">
+      <slot />
+    </main>
+    <Pie />
+  </body>
+</html>
+
+<style is:global>
+  body { display: flex; flex-direction: column; min-height: 100vh; }
+  main { flex: 1; }
+  .saltar { position: absolute; left: 8px; top: -60px; background: var(--tinta); color: #fff; padding: 10px 14px; border-radius: 6px; z-index: 100; text-decoration: none; }
+  .saltar:focus { top: 8px; }
+  body.menu-abierto { overflow: hidden; }
+</style>

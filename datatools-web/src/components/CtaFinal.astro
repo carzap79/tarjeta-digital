@@ -1,0 +1,29 @@
+---
+interface Props { titulo?: string; texto?: string; imagen?: string }
+const {
+  titulo = '¿Tienes un reto de operación, datos o tecnología?',
+  texto = 'Cuéntanos qué necesita tu entidad o tu empresa. Un asesor de Data Tools te responde con una propuesta concreta, sin rodeos.',
+  imagen = '/media/dato-ok-recorte.webp',
+} = Astro.props;
+---
+<section class="seccion seccion--tinta cta-final">
+  <div class="contenedor cta-final__fila">
+    <div>
+      <div class="rotulo">Siguiente paso</div>
+      <h2>{titulo}</h2>
+      <p>{texto}</p>
+      <div class="acciones">
+        <a class="boton boton--claro" href="/contacto">Escríbenos</a>
+        <a class="boton boton--borde-claro" href="/casos">Ver casos</a>
+      </div>
+    </div>
+    <img src={imagen} alt="Dato, el asistente de Data Tools, levanta el pulgar" width="260" height="360" loading="lazy" />
+  </div>
+</section>
+
+<style>
+  .cta-final__fila { display: grid; grid-template-columns: 1fr 260px; gap: 40px; align-items: center; }
+  .cta-final img { width: 260px; height: auto; justify-self: end; filter: drop-shadow(0 12px 24px rgba(0,0,0,.35)); }
+  .cta-final h2 { font-size: clamp(1.6rem, 2.6vw, 2.1rem); }
+  @media (max-width: 760px) { .cta-final__fila { grid-template-columns: 1fr; } .cta-final img { width: 180px; justify-self: center; } }
+</style>

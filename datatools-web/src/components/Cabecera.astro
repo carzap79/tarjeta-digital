@@ -1,0 +1,67 @@
+---
+import sitio from '../data/sitio.json';
+import Logo from './Logo.astro';
+const ruta = Astro.url.pathname.replace(/\/$/, '') || '/';
+const activa = (r: string) => ruta === r || (r !== '/' && ruta.startsWith(r));
+---
+<header class="cabecera">
+  <div class="contenedor cabecera__fila">
+    <a href="/" class="cabecera__logo" aria-label="Ir al inicio"><Logo alto={34} /></a>
+
+    <button class="cabecera__boton" type="button" aria-expanded="false" aria-controls="menu-principal" id="boton-menu">
+      <span class="visualmente-oculto">Abrir menú</span>
+      <span class="cabecera__hamburguesa" aria-hidden="true"></span>
+    </button>
+
+    <nav class="cabecera__nav" id="menu-principal" aria-label="Principal">
+      <ul>
+        {sitio.navegacion.map((n) => (
+          <li><a href={n.ruta} aria-current={activa(n.ruta) ? 'page' : undefined}>{n.texto}</a></li>
+        ))}
+      </ul>
+      <a href="/contacto" class="boton cabecera__cta">Hablemos</a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const boton = document.getElementById('boton-menu');
+  const nav = document.getElementById('menu-principal');
+  boton?.addEventListener('click', () => {
+    const abierto = boton.getAttribute('aria-expanded') === 'true';
+    boton.setAttribute('aria-expanded', String(!abierto));
+    nav?.classList.toggle('abierto', !abierto);
+    document.body.classList.toggle('menu-abierto', !abierto);
+  });
+</script>
+
+<style>
+  .cabecera { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--linea); }
+  .cabecera__fila { display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 68px; }
+  .cabecera__logo { display: inline-flex; text-decoration: none; }
+  .cabecera__nav { display: flex; align-items: center; gap: 22px; }
+  .cabecera__nav ul { display: flex; gap: 4px; list-style: none; margin: 0; padding: 0; }
+  .cabecera__nav a:not(.boton) { display: block; padding: 8px 12px; text-decoration: none; color: var(--tinta); font-weight: 500; border-radius: 4px; border-bottom: 2px solid transparent; }
+  .cabecera__nav a:not(.boton):hover { background: var(--tinte); }
+  .cabecera__nav a[aria-current="page"] { border-bottom-color: var(--teal-oscuro); color: var(--teal-oscuro); }
+  .cabecera__cta { padding: 10px 18px; }
+  .cabecera__boton { display: none; background: none; border: 1px solid var(--linea); border-radius: 6px; width: 44px; height: 40px; cursor: pointer; position: relative; }
+  .cabecera__hamburguesa, .cabecera__hamburguesa::before, .cabecera__hamburguesa::after {
+    content: ""; position: absolute; left: 11px; width: 20px; height: 2px; background: var(--tinta); transition: transform .2s ease, opacity .2s ease;
+  }
+  .cabecera__hamburguesa { top: 19px; }
+  .cabecera__hamburguesa::before { top: -6px; left: 0; }
+  .cabecera__hamburguesa::after { top: 6px; left: 0; }
+  .cabecera__boton[aria-expanded="true"] .cabecera__hamburguesa { background: transparent; }
+  .cabecera__boton[aria-expanded="true"] .cabecera__hamburguesa::before { transform: translateY(6px) rotate(45deg); }
+  .cabecera__boton[aria-expanded="true"] .cabecera__hamburguesa::after { transform: translateY(-6px) rotate(-45deg); }
+
+  @media (max-width: 900px) {
+    .cabecera__boton { display: block; }
+    .cabecera__nav { display: none; position: absolute; left: 0; right: 0; top: 100%; background: var(--blanco); border-bottom: 1px solid var(--linea); padding: 12px 20px 20px; flex-direction: column; align-items: stretch; gap: 12px; box-shadow: var(--sombra); }
+    .cabecera__nav.abierto { display: flex; }
+    .cabecera__nav ul { flex-direction: column; }
+    .cabecera__nav a:not(.boton) { padding: 12px; font-size: 1.05rem; }
+    .cabecera__cta { justify-content: center; }
+  }
+</style>

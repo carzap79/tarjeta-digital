@@ -1,0 +1,30 @@
+---
+/**
+ * Marca gráfica. Mientras llega el logo oficial en SVG se usa este rótulo tipográfico
+ * con un globo lineal genérico. Para reemplazarlo: guarda el logo en public/logo.svg
+ * y cambia `usarArchivo` a true.
+ */
+interface Props { claro?: boolean; alto?: number; usarArchivo?: boolean }
+const { claro = false, alto = 34, usarArchivo = false } = Astro.props;
+const color = claro ? '#ffffff' : '#0b2a4a';
+const acento = claro ? '#7fd6d6' : '#00a3a3';
+---
+{usarArchivo ? (
+  <img src="/logo.svg" alt="Data Tools S.A.S" height={alto} style={`height:${alto}px;width:auto`} />
+) : (
+  <span class="logo" style={`--alto:${alto}px`} aria-label="Data Tools S.A.S">
+    <svg viewBox="0 0 40 40" width={alto} height={alto} aria-hidden="true" focusable="false">
+      <circle cx="20" cy="20" r="16" fill="none" stroke={acento} stroke-width="2.2" />
+      <ellipse cx="20" cy="20" rx="7" ry="16" fill="none" stroke={acento} stroke-width="1.6" />
+      <path d="M4 20h32M7 12h26M7 28h26" fill="none" stroke={acento} stroke-width="1.6" />
+      <circle cx="30" cy="10" r="3.2" fill={color} />
+    </svg>
+    <span class="logo__texto" style={`color:${color}`}>DATA<b>TOOLS</b></span>
+  </span>
+)}
+
+<style>
+  .logo { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
+  .logo__texto { font-family: var(--fuente); font-weight: 500; letter-spacing: .12em; font-size: calc(var(--alto) * .56); line-height: 1; }
+  .logo__texto b { font-weight: 800; margin-left: .35em; }
+</style>

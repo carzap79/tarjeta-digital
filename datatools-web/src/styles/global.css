@@ -1,0 +1,198 @@
+/* ==========================================================================
+   Data Tools S.A.S — hoja de estilos global
+   Estilo: cuaderno técnico / plano de ingeniería. Sobrio, preciso, humano.
+   ========================================================================== */
+
+:root {
+  /* paleta de marca (tomada de Dato y del material corporativo) */
+  --tinta: #0b2a4a;        /* azul marino: títulos, encabezados de tabla */
+  --tinta-2: #123e63;      /* azul marino medio */
+  --teal: #00a3a3;         /* verde azulado de marca: acentos decorativos */
+  --teal-oscuro: #007a8a;  /* verde azulado para texto y botones (contraste AA) */
+  --ambar: #b5720e;        /* atención */
+  --texto: #1b2a38;
+  --gris: #5f7385;
+  --linea: #c9d6e2;
+  --tinte: #edf4f7;
+  --papel: #f7f8f6;
+  --blanco: #ffffff;
+  --sombra: 0 1px 2px rgba(11, 42, 74, 0.06), 0 8px 24px -12px rgba(11, 42, 74, 0.18);
+
+  --fuente: "IBM Plex Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+
+  --ancho: 1160px;
+  --radio: 6px;
+  --paso: 8px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  font-family: var(--fuente);
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--texto);
+  background: var(--papel);
+}
+
+img, video { max-width: 100%; height: auto; display: block; }
+
+a { color: var(--teal-oscuro); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { color: var(--tinta); }
+
+h1, h2, h3, h4 { color: var(--tinta); line-height: 1.15; margin: 0 0 0.5em; font-weight: 600; letter-spacing: -0.01em; }
+h1 { font-size: clamp(2rem, 4.2vw, 3.1rem); font-weight: 700; }
+h2 { font-size: clamp(1.6rem, 2.8vw, 2.2rem); }
+h3 { font-size: 1.2rem; }
+p { margin: 0 0 1em; }
+p.grande { font-size: 1.2rem; color: var(--tinta-2); }
+
+:focus-visible { outline: 3px solid var(--teal); outline-offset: 2px; border-radius: 2px; }
+
+.visualmente-oculto {
+  position: absolute !important; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap;
+}
+
+/* ------------------------------------------------------------------ marco */
+.contenedor { width: min(var(--ancho), 100% - 2 * 20px); margin-inline: auto; }
+
+.seccion { padding: clamp(56px, 8vw, 96px) 0; }
+.seccion--tinte { background: var(--tinte); }
+.seccion--blanca { background: var(--blanco); }
+.seccion--tinta { background: var(--tinta); color: #dbe7f0; }
+.seccion--tinta h2, .seccion--tinta h3 { color: var(--blanco); }
+.seccion--tinta p { color: #c7d6e3; }
+
+/* numeración de sección, como en un plano */
+.rotulo {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px;
+  font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--teal-oscuro); margin-bottom: 14px;
+}
+.rotulo::before { content: ""; width: 10px; height: 10px; background: var(--teal-oscuro); }
+.seccion--tinta .rotulo { color: #7fd6d6; }
+.seccion--tinta .rotulo::before { background: #7fd6d6; }
+
+.encabezado { max-width: 760px; margin-bottom: clamp(28px, 4vw, 44px); }
+.encabezado p { color: var(--gris); font-size: 1.1rem; margin: 0; }
+.seccion--tinta .encabezado p { color: #b9cbd9; }
+
+/* ------------------------------------------------------------------ botones */
+.boton {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 12px 20px; border-radius: var(--radio); border: 1.5px solid var(--teal-oscuro);
+  font-weight: 600; text-decoration: none; line-height: 1.1; cursor: pointer;
+  background: var(--teal-oscuro); color: var(--blanco); font-family: inherit; font-size: 1rem;
+  transition: background .15s ease, color .15s ease, transform .15s ease;
+}
+.boton:hover { background: var(--tinta); border-color: var(--tinta); color: var(--blanco); transform: translateY(-1px); }
+.boton--secundario { background: transparent; color: var(--teal-oscuro); }
+.boton--secundario:hover { background: var(--tinte); color: var(--tinta); }
+.boton--claro { background: var(--blanco); color: var(--tinta); border-color: var(--blanco); }
+.boton--claro:hover { background: #e3f3f3; border-color: #e3f3f3; color: var(--tinta); }
+.boton--borde-claro { background: transparent; color: var(--blanco); border-color: rgba(255,255,255,.55); }
+.boton--borde-claro:hover { background: rgba(255,255,255,.1); border-color: var(--blanco); color: var(--blanco); }
+
+/* ------------------------------------------------------------------ rejillas */
+.rejilla { display: grid; gap: 20px; }
+.rejilla--2 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); }
+.rejilla--3 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); }
+.rejilla--4 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); }
+
+/* ------------------------------------------------------------------ tarjetas */
+.tarjeta {
+  background: var(--blanco); border: 1px solid var(--linea); border-radius: var(--radio);
+  padding: 24px; position: relative; display: flex; flex-direction: column; gap: 10px;
+  transition: box-shadow .2s ease, transform .2s ease;
+}
+.tarjeta:hover { box-shadow: var(--sombra); transform: translateY(-2px); }
+.tarjeta h3 { margin: 0; font-size: 1.15rem; }
+.tarjeta p { margin: 0; color: var(--gris); font-size: 0.98rem; }
+.tarjeta .marca { width: 12px; height: 12px; background: var(--teal); margin-bottom: 4px; }
+.tarjeta .codigo { font-family: var(--mono); font-size: 0.78rem; color: var(--gris); letter-spacing: .06em; }
+.tarjeta ul { margin: 6px 0 0; padding-left: 18px; color: var(--texto); font-size: .95rem; }
+.tarjeta ul li { margin-bottom: 4px; }
+.tarjeta .enlace { margin-top: auto; padding-top: 10px; font-weight: 600; text-decoration: none; }
+.tarjeta .enlace::after { content: " →"; }
+
+/* tarjeta con Dato */
+.tarjeta--dato { display: grid; grid-template-columns: 1fr 120px; gap: 16px; align-items: center; }
+.tarjeta--dato img { width: 120px; height: 120px; object-fit: contain; }
+.tarjeta--dato > div { display: flex; flex-direction: column; gap: 10px; }
+@media (max-width: 480px) { .tarjeta--dato { grid-template-columns: 1fr; } }
+
+/* ------------------------------------------------------------------ cifras */
+.cifras { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 0; border: 1px solid var(--linea); border-radius: var(--radio); background: var(--blanco); overflow: hidden; }
+.cifra { padding: 22px 24px; border-right: 1px solid var(--linea); }
+.cifra:last-child { border-right: 0; }
+.cifra strong { display: block; font-size: 2rem; color: var(--tinta); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; }
+.cifra span { display: block; color: var(--gris); font-size: .95rem; margin-top: 4px; }
+.cifra small { display: block; font-family: var(--mono); font-size: .72rem; color: var(--teal-oscuro); letter-spacing: .06em; text-transform: uppercase; margin-bottom: 8px; }
+@media (max-width: 720px) { .cifra { border-right: 0; border-bottom: 1px solid var(--linea); } .cifra:last-child { border-bottom: 0; } }
+
+/* ------------------------------------------------------------------ tablas (ficha técnica) */
+.tabla-envoltura { overflow-x: auto; border: 1px solid var(--linea); border-radius: var(--radio); background: var(--blanco); }
+table.ficha { width: 100%; border-collapse: collapse; font-size: .97rem; }
+table.ficha th { background: var(--tinta-2); color: var(--blanco); text-align: left; padding: 12px 16px; font-weight: 600; }
+table.ficha td { padding: 12px 16px; border-top: 1px solid var(--linea); vertical-align: top; }
+table.ficha td:first-child { font-weight: 600; color: var(--tinta); width: 28%; }
+table.ficha tr:nth-child(even) td { background: #f9fbfc; }
+
+/* ------------------------------------------------------------------ listas de definición */
+.definiciones { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 20px 40px; }
+.definiciones dt { font-weight: 600; color: var(--tinta); margin-bottom: 4px; }
+.definiciones dd { margin: 0 0 12px; color: var(--gris); }
+
+/* ------------------------------------------------------------------ preguntas frecuentes */
+.faq details { border: 1px solid var(--linea); border-radius: var(--radio); background: var(--blanco); padding: 0 20px; margin-bottom: 10px; }
+.faq summary { cursor: pointer; padding: 16px 0; font-weight: 600; color: var(--tinta); list-style: none; display: flex; justify-content: space-between; gap: 16px; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; font-family: var(--mono); color: var(--teal-oscuro); font-size: 1.2rem; line-height: 1; }
+.faq details[open] summary::after { content: "−"; }
+.faq details p { margin: 0 0 16px; color: var(--gris); }
+
+/* ------------------------------------------------------------------ formularios */
+.formulario { display: grid; gap: 16px; }
+.formulario .fila { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); }
+.formulario label { display: grid; gap: 6px; font-weight: 600; color: var(--tinta); font-size: .95rem; }
+.formulario input, .formulario select, .formulario textarea {
+  font: inherit; padding: 11px 12px; border: 1px solid var(--linea); border-radius: var(--radio); background: var(--blanco); color: var(--texto); width: 100%;
+}
+.formulario textarea { min-height: 140px; resize: vertical; }
+.formulario input:focus, .formulario select:focus, .formulario textarea:focus { border-color: var(--teal-oscuro); outline: 2px solid rgba(0,122,138,.25); }
+.formulario .ayuda { font-size: .85rem; color: var(--gris); font-weight: 400; }
+.aviso { padding: 12px 16px; border-radius: var(--radio); border: 1px solid var(--linea); background: var(--tinte); color: var(--tinta); }
+.aviso--error { border-color: #e2b4a5; background: #fbeee9; color: #7a2e18; }
+.aviso--ok { border-color: #b7dcc9; background: #eaf7ef; color: #1e5a3a; }
+
+/* ------------------------------------------------------------------ utilidades */
+.texto-centrado { text-align: center; }
+.mono { font-family: var(--mono); }
+.gris { color: var(--gris); }
+.pie-nota { font-size: .85rem; color: var(--gris); }
+.acciones { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+.separador { height: 1px; background: var(--linea); border: 0; margin: 0; }
+
+/* papel cuadriculado para portadas */
+.cuadricula {
+  background-color: var(--blanco);
+  background-image:
+    linear-gradient(to right, rgba(11,42,74,.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(11,42,74,.06) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .tarjeta, .boton { transition: none; }
+}
+
+@media print {
+  header.cabecera, footer.pie, .cta-final { display: none !important; }
+  body { background: #fff; }
+}

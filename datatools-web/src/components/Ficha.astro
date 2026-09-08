@@ -1,0 +1,13 @@
+---
+/** Tabla de ficha técnica: pares etiqueta / valor. */
+interface Props { titulo?: string; filas: [string, string][] }
+const { titulo, filas } = Astro.props;
+---
+<div class="tabla-envoltura">
+  <table class="ficha">
+    {titulo && <thead><tr><th colspan="2">{titulo}</th></tr></thead>}
+    <tbody>
+      {filas.map(([k, v]) => <tr><td>{k}</td><td>{v}</td></tr>)}
+    </tbody>
+  </table>
+</div>

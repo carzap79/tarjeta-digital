@@ -1,0 +1,25 @@
+---
+/** Sección numerada estilo plano: rótulo, título, introducción y contenido. */
+interface Props {
+  numero?: string;
+  rotulo?: string;
+  titulo?: string;
+  intro?: string;
+  tono?: 'papel' | 'tinte' | 'blanca' | 'tinta';
+  id?: string;
+}
+const { numero, rotulo, titulo, intro, tono = 'papel', id } = Astro.props;
+const clase = tono === 'papel' ? 'seccion' : `seccion seccion--${tono}`;
+---
+<section class={clase} id={id}>
+  <div class="contenedor">
+    {(rotulo || titulo) && (
+      <div class="encabezado">
+        {rotulo && <div class="rotulo">{numero && <span>{numero}</span>}{numero && <span aria-hidden="true">/</span>}<span>{rotulo}</span></div>}
+        {titulo && <h2>{titulo}</h2>}
+        {intro && <p>{intro}</p>}
+      </div>
+    )}
+    <slot />
+  </div>
+</section>
