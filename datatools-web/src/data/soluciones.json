@@ -4,71 +4,117 @@
     "codigo": "S-01",
     "nombre": "Movilidad y tránsito",
     "resumen": "Plataformas y operación para organismos de tránsito: registro automotor, conductores, infractores y atención al ciudadano, integradas con RUNT y SIMIT.",
-    "descripcion": "Es la línea que dio origen a Data Tools y la que mejor conocemos. Diseñamos, implementamos y operamos el software con el que los organismos de tránsito atienden trámites de vehículos y conductores, gestionan comparendos y procesos contravencionales, administran patios y grúas y recaudan cartera. Lo hacemos con productos propios (Circulemos y CiDi), integrados con los sistemas nacionales y con la operación de ventanilla, mesa de servicios y contacto ciudadano cuando el cliente lo requiere.",
+    "descripcion": "Es la línea que dio origen a Data Tools y la que mejor conocemos. Nuestra misión en ella es ofrecer a los organismos de tránsito y a las demás entidades responsables del control y la gestión de la movilidad y el transporte servicios de alta calidad mediante la tercerización de sus procesos misionales, con base en la experiencia de nuestro personal, procesos simples y eficientes e integración de tecnología innovadora. Lo hacemos con productos propios, Circulemos y CiDi, integrados con RUNT y SIMIT.",
     "incluye": [
-      "Registro Nacional de Automotores (RNA): inscripción, traspasos, actualización de datos, certificados y trámites en línea",
-      "Registro Nacional de Conductores (RNC): expedición, refrendación, recategorización y control de antecedentes",
-      "Control de infractores: imposición, notificación, sanción y ejecución de multas; integración con SIMIT",
-      "Accidentalidad y comparendos: análisis estadístico, asignación de rangos y reportes gerenciales",
-      "Patios, grúas, cartera y cobro coactivo",
-      "Operación de puntos de atención, mesa de servicios y canales ciudadanos"
+      "Trámites del Registro Nacional de Automotores (RNA) y del Registro Nacional de Conductores (RNC)",
+      "Administración y control al transporte público",
+      "Soporte al proceso contravencional: imposición, sanción y ejecución de multas",
+      "Accidentalidad y control de la asignación de rangos de comparendos",
+      "Consultoría técnica y operativa y gestión tecnológica en organismos de tránsito",
+      "Gestión operativa de trámites, del transporte público y apoyo a la fiscalización del cumplimiento de las normas de tránsito",
+      "Reportes gerenciales"
     ],
     "paraQuien": "Secretarías de movilidad y tránsito, organismos de apoyo, concesiones y operadores.",
     "imagen": "/media/dato-direccion.webp",
     "ficha": [
-      ["Productos", "Circulemos (RNA, RNC, infractores) y CiDi (contravenciones y cartera)"],
-      ["Integraciones", "RUNT, SIMIT, pasarelas de pago, bancos, gestión documental"],
-      ["Modalidad", "Software como servicio en nube o instalación en la entidad; operación tercerizada opcional"],
-      ["Cumplimiento", "Normativa de tránsito nacional, habeas data, Archivo General de la Nación"],
-      ["Soporte", "Mesa de servicios con niveles de servicio; monitoreo 7×24"]
+      [
+        "Productos",
+        "Circulemos (RNA, RNC, transporte público, contravencional) y CiDi (Centro Integral de Información)"
+      ],
+      [
+        "Integraciones",
+        "RUNT, SIMIT, pasarelas de pago, bancos, gestión documental"
+      ],
+      [
+        "Modalidad",
+        "Software como servicio en nube o instalación en la entidad; operación tercerizada opcional"
+      ],
+      [
+        "Cumplimiento",
+        "Normativa de tránsito nacional, habeas data, Archivo General de la Nación"
+      ],
+      [
+        "Soporte",
+        "Mesa de servicios con niveles de servicio; monitoreo 7×24"
+      ]
     ]
   },
   {
     "id": "operacion",
     "codigo": "S-02",
     "nombre": "Operación tecnológica 7×24 (ITO)",
-    "resumen": "Tercerización de la infraestructura y la seguridad: centro de operaciones de red y de seguridad, nube, respaldos, mesa de servicios y soporte en sitio.",
-    "descripcion": "Operamos la tecnología de nuestros clientes como si fuera la nuestra: monitoreo permanente, gestión de incidentes, administración de servidores y nube, seguridad informática, respaldos y soporte a usuarios. Un equipo de 85 profesionales certificados con procesos definidos, indicadores publicados y compromisos de disponibilidad medibles.",
+    "resumen": "Tercerización de la infraestructura y la seguridad: centro de operaciones de red y de seguridad, nube, centro de datos propio, mesa de servicios y soporte en sitio.",
+    "descripcion": "Operamos la tecnología de nuestros clientes como si fuera la nuestra: monitoreo permanente, gestión de incidentes, administración de servidores y nube, seguridad informática, respaldos y soporte a usuarios. Un equipo de 85 profesionales certificados, prácticas reconocidas por la industria y tecnología madura y escalable bajo estándares abiertos, con compromisos de disponibilidad medibles.",
     "incluye": [
-      "Centro de operaciones de red (NOC) y de seguridad (iSOC) con monitoreo 7×24",
-      "Administración de infraestructura, nube (Azure, AWS, Oracle Cloud) y bases de datos",
-      "Seguridad informática: vulnerabilidades, parches, correlación de eventos, respuesta a incidentes",
-      "Mesa de servicios y soporte técnico en sitio y remoto",
-      "Respaldos, continuidad y recuperación ante desastres",
-      "Integración y despliegue continuos para los equipos de desarrollo del cliente"
+      "Centro de operaciones de red (NOC) y de seguridad de la información (iSOC) con monitoreo 7×24",
+      "Nube, correo y colaboración (Zimbra), plataformas de aprendizaje en línea",
+      "Centro de datos propio en Bogotá con características TIER-2 (estándar TIA-942): colocation, hosting y housing",
+      "Consultoría, implementación, fábrica de software y gestión de activos de software (SAM)",
+      "Depuración de datos (data cleansing) e inteligencia de negocios",
+      "Suministro de servidores, almacenamiento, redes, seguridad perimetral, estaciones y licenciamiento"
     ],
     "paraQuien": "Entidades y empresas que necesitan operar sin interrupciones y sin crecer su planta de tecnología.",
     "imagen": "/media/dato-portatil.webp",
     "ficha": [
-      ["Cobertura", "7×24×365 con niveles de servicio por criticidad"],
-      ["Equipo", "85 profesionales certificados en infraestructura, nube, redes y seguridad"],
-      ["Herramientas", "Monitoreo, gestión de incidentes, correlación de eventos, gestión de vulnerabilidades"],
-      ["Indicadores", "Disponibilidad, tiempo de respuesta y de solución, cumplimiento de niveles de servicio"],
-      ["Modalidad", "Servicio administrado, por demanda o equipo dedicado"]
+      [
+        "Cobertura",
+        "7×24×365 con niveles de servicio por criticidad"
+      ],
+      [
+        "Equipo",
+        "85 profesionales: gestión de proyectos (PMP), seguridad (CISM, ISO 27001 LA), infraestructura (RHCE, VCP, MCSA, CCNA), desarrollo (Java EE, .NET), procesos de TI (ITIL, COBIT, TOGAF)"
+      ],
+      [
+        "Centro de datos",
+        "Av. de las Américas 31-20, Bogotá: energía y aire redundantes, CCTV 7×24, control de acceso, detección y extinción de incendios"
+      ],
+      [
+        "Indicadores",
+        "Disponibilidad, tiempo de respuesta y de solución, cumplimiento de niveles de servicio"
+      ],
+      [
+        "Modalidad",
+        "Servicio administrado, por demanda o equipo dedicado"
+      ]
     ]
   },
   {
     "id": "procesos",
     "codigo": "S-03",
     "nombre": "Procesos de negocio (BPO)",
-    "resumen": "Operamos procesos completos con personas, método y tecnología: atención al ciudadano, cartera, contabilidad, gestión humana y procesamiento de datos.",
-    "descripcion": "Cuando el reto no es solo tecnológico, asumimos el proceso de punta a punta. Combinamos equipos entrenados, procedimientos documentados, automatización e indicadores para entregar resultados medibles y auditables.",
+    "resumen": "Tercerización contable, financiera, de gestión humana y administrativa, además de la operación de procesos misionales con personas, método y tecnología.",
+    "descripcion": "Las compañías exitosas se concentran en su negocio principal sin desgastarse en las tareas de soporte. Asumimos el proceso de punta a punta, con equipos entrenados, procedimientos documentados, automatización e indicadores, para que nuestros clientes hagan más con menos recursos sin descuidar las obligaciones de ley.",
     "incluye": [
-      "Atención al cliente y al ciudadano en puntos de atención y canales digitales",
-      "Gestión de cartera y recaudo",
-      "Procesos contables y financieros",
+      "Contabilidad general y preparación de informes financieros, combinados y consolidados",
+      "Gestión de las obligaciones tributarias y coordinación de procesos legales tributarios",
+      "Administración de compras y proveedores; gestión y operaciones de tesorería",
       "Gestión humana: nómina, selección y administración de personal",
-      "Digitación, procesamiento y validación de datos",
+      "Atención al cliente y al ciudadano, gestión de cartera y recaudo, procesamiento de datos",
       "Automatización de tareas repetitivas con robots de software"
     ],
     "paraQuien": "Entidades públicas y empresas que necesitan operar procesos con calidad certificable y costos previsibles.",
     "imagen": "/media/dato-optimiza.webp",
     "ficha": [
-      ["Modelo", "Proceso completo con acuerdos de nivel de servicio e indicadores mensuales"],
-      ["Personas", "Equipos entrenados y certificados en el proceso del cliente"],
-      ["Tecnología", "Plataformas propias o del cliente, automatización robótica, tableros de control"],
-      ["Control", "Auditoría, trazabilidad y reportes gerenciales"],
-      ["Escala", "Capacidad para absorber picos de demanda y nuevas sedes"]
+      [
+        "Modelo",
+        "Proceso completo con acuerdos de nivel de servicio e indicadores mensuales"
+      ],
+      [
+        "Personas",
+        "Equipos entrenados y certificados en el proceso del cliente"
+      ],
+      [
+        "Tecnología",
+        "Plataformas propias o del cliente, automatización robótica, tableros de control"
+      ],
+      [
+        "Control",
+        "Auditoría, trazabilidad y reportes gerenciales"
+      ],
+      [
+        "Escala",
+        "Capacidad para absorber picos de demanda y nuevas sedes"
+      ]
     ]
   },
   {
@@ -76,23 +122,38 @@
     "codigo": "S-04",
     "nombre": "Gestión documental",
     "resumen": "Procesos con cero papel bajo los lineamientos del Archivo General de la Nación: tablas de retención, correspondencia, digitalización y archivos centrales.",
-    "descripcion": "Organizamos, digitalizamos y administramos la información documental de la entidad para que sea encontrable, íntegra y conforme con la norma. Desde el diagnóstico y las tablas de retención hasta la operación diaria de la correspondencia y el archivo.",
+    "descripcion": "Prestamos servicios de gestión documental de manera eficiente y efectiva, con los mecanismos para definir procesos con cero papel, cuidando los recursos naturales y financieros. Todo dentro de los lineamientos y normas del Archivo General de la Nación, desde el diagnóstico y las tablas de retención hasta la operación diaria de la correspondencia y el archivo.",
     "incluye": [
-      "Tablas de retención y de valoración documental (TRD y TVD)",
-      "Gestión de correspondencia y ventanilla única",
-      "Digitalización certificada e indexación",
-      "Administración de archivos de gestión y centrales",
-      "Expediente electrónico y consulta en línea",
-      "Custodia y transferencias documentales"
+      "Elaboración de tablas de retención documental (TRD) y de valoración documental (TVD)",
+      "Correspondencia y flujo documental",
+      "Transporte de documentos",
+      "Administración y gestión de archivos centrales e históricos",
+      "Organización y gestión de fondos acumulados",
+      "Digitalización, expediente electrónico y consulta en línea"
     ],
     "paraQuien": "Entidades públicas obligadas por la normativa archivística y empresas con altos volúmenes documentales.",
     "imagen": "/media/dato-conexion.webp",
     "ficha": [
-      ["Marco normativo", "Archivo General de la Nación, Ley 594 de 2000 y normas reglamentarias"],
-      ["Entregables", "Diagnóstico, TRD y TVD, procedimientos, inventarios, expediente electrónico"],
-      ["Operación", "Correspondencia, digitalización, archivo central y custodia"],
-      ["Tecnología", "Sistema de gestión documental integrado con las plataformas de trámite"],
-      ["Indicadores", "Oportunidad de radicación, tiempos de consulta, integridad del expediente"]
+      [
+        "Marco normativo",
+        "Archivo General de la Nación, Ley 594 de 2000 y normas reglamentarias"
+      ],
+      [
+        "Entregables",
+        "Diagnóstico, TRD y TVD, procedimientos, inventarios, expediente electrónico"
+      ],
+      [
+        "Operación",
+        "Correspondencia, digitalización, archivo central y custodia"
+      ],
+      [
+        "Tecnología",
+        "Sistema de gestión documental integrado con las plataformas de trámite"
+      ],
+      [
+        "Ventajas",
+        "Información organizada y controlada, menos duplicación documental, seguridad y confidencialidad, memoria corporativa (archivo histórico)"
+      ]
     ]
   },
   {
@@ -112,34 +173,65 @@
     "paraQuien": "Directivos que necesitan visibilidad de la operación y equipos que quieren automatizar con criterio.",
     "imagen": "/media/dato-grafico.webp",
     "ficha": [
-      ["Plataformas", "Nube Azure, herramientas de inteligencia de negocios, modelos de lenguaje y de visión"],
-      ["Gobierno de IA", "Sistema de gestión con la norma ISO/IEC 42001 como referencia"],
-      ["Datos", "Modelos de datos, calidad, catálogo y trazabilidad"],
-      ["Entrega", "Casos de uso priorizados por valor, pilotos medibles y paso a producción"],
-      ["Seguridad", "Protección de datos personales y control de acceso por rol"]
+      [
+        "Plataformas",
+        "Nube Azure, herramientas de inteligencia de negocios, modelos de lenguaje y de visión"
+      ],
+      [
+        "Gobierno de IA",
+        "Sistema de gestión con la norma ISO/IEC 42001 como referencia"
+      ],
+      [
+        "Datos",
+        "Modelos de datos, calidad, catálogo y trazabilidad"
+      ],
+      [
+        "Entrega",
+        "Casos de uso priorizados por valor, pilotos medibles y paso a producción"
+      ],
+      [
+        "Seguridad",
+        "Protección de datos personales y control de acceso por rol"
+      ]
     ]
   },
   {
     "id": "salud",
     "codigo": "S-06",
     "nombre": "Salud",
-    "resumen": "Soluciones de software y operación para clínicas, empresas sociales del Estado e instituciones prestadoras de salud.",
-    "descripcion": "Llevamos al sector salud la misma disciplina de operación y de datos: sistemas de información asistenciales y administrativos, gestión documental clínica, facturación y procesos tercerizados, con la seguridad que exige la información de los pacientes.",
+    "resumen": "Software misional para el sector salud: Gestión Salud para clínicas, ESE e IPS, salud departamental para secretarías de salud y salud de régimen especial (Magisterio).",
+    "descripcion": "Nuestra solución Gestión Salud Clínicas está conformada por módulos completamente integrados: la información que entra por un punto funcional sigue el flujo establecido sin volver a digitarse. La historia clínica electrónica es parametrizable según la unidad funcional de ingreso, la facturación se deriva automáticamente de las actividades registradas y las reglas del negocio se definen en la parametrización. La implantación toma entre uno y tres meses según la complejidad de la institución.",
     "incluye": [
-      "Sistemas de información para clínicas, ESE e IPS",
-      "Gestión documental clínica y expediente electrónico",
-      "Facturación, cartera y procesos administrativos",
-      "Mesa de servicios y operación tecnológica",
-      "Analítica de la operación asistencial"
+      "Historia clínica electrónica parametrizable: urgencias, traslados, remisiones y hospitalización",
+      "Contratación con aseguradoras y pacientes particulares, facturación y cartera",
+      "Agenda médica y citas, operables desde redes locales o centros remotos",
+      "Salud departamental: secretarías de salud",
+      "Salud de régimen especial (Magisterio)",
+      "Arrendamiento de software sobre nuestra infraestructura de servidores"
     ],
-    "paraQuien": "Clínicas, empresas sociales del Estado e instituciones prestadoras de servicios de salud.",
+    "paraQuien": "Clínicas, empresas sociales del Estado, instituciones prestadoras de servicios de salud, secretarías de salud y administradoras del régimen especial.",
     "imagen": "/media/dato-corazon.webp",
     "ficha": [
-      ["Alcance", "Software, operación tecnológica y procesos de negocio"],
-      ["Seguridad", "Protección de datos sensibles, control de acceso y auditoría"],
-      ["Integración", "Sistemas asistenciales, administrativos y de reporte regulatorio"],
-      ["Modalidad", "Nube o instalación en la institución"],
-      ["Soporte", "Mesa de servicios con niveles de servicio"]
+      [
+        "Producto",
+        "Gestión Salud Clínicas, ESE e IPS; Salud Departamental; Salud Régimen Especial"
+      ],
+      [
+        "Implantación",
+        "Entre uno y tres meses según la complejidad de la institución"
+      ],
+      [
+        "Seguridad",
+        "Protección de datos sensibles, control de acceso y auditoría"
+      ],
+      [
+        "Modalidad",
+        "Arrendamiento de software (nube) o instalación en la institución"
+      ],
+      [
+        "Soporte",
+        "Mesa de servicios con niveles de servicio"
+      ]
     ]
   }
 ]

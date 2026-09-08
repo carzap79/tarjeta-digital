@@ -4,34 +4,49 @@
     "nombre": "Circulemos",
     "marca": "CIRCULEMOS©",
     "lema": "La plataforma integral del organismo de tránsito",
-    "resumen": "Software para operar los trámites del Registro Nacional de Automotores y de Conductores, el control de infractores y la administración del transporte público, integrado con RUNT y SIMIT.",
-    "descripcion": "Circulemos cubre el ciclo completo de un organismo de tránsito: desde la radicación del trámite en ventanilla o en línea hasta su registro ante las entidades nacionales, pasando por el pago, la validación documental, la expedición de certificados y la trazabilidad de cada actuación. Está en operación en entidades de Colombia y Perú.",
+    "resumen": "Software con una madurez de más de 15 años para operar los trámites del Registro Nacional de Automotores y de Conductores, el transporte público y el proceso contravencional, integrado con RUNT y SIMIT.",
+    "descripcion": "Circulemos ha trascendido los ajustes que ha establecido la ley y las condiciones de operación actuales con la interacción de RUNT, SIMIT y otros actores, según las necesidades definidas por cada organismo de tránsito. Es producto de la experiencia y el conocimiento de nuestro equipo en el negocio de transporte y movilidad, con esquemas de operación ajustados a cada entidad: desde la radicación del trámite en ventanilla o en línea hasta su registro ante las entidades nacionales, pasando por el pago, la validación documental y la trazabilidad de cada actuación. Está en operación en entidades de Colombia y Perú.",
     "modulos": [
-      "Registro Nacional de Automotores: inscripción, traspasos, actualización de datos, certificados de tradición, trámites en línea",
-      "Registro Nacional de Conductores: licencias, refrendación, recategorización, antecedentes",
-      "Control de infractores: comparendos, procesos contravencionales, sanciones y ejecución",
-      "Transporte público: administración y control de empresas, rutas y vehículos",
-      "Patios y grúas, cartera y recaudo",
-      "Gestión documental integrada y expediente electrónico",
-      "Portal ciudadano: consultas, trámites y pagos en línea",
-      "Tableros gerenciales y reportes regulatorios"
+      "Trámites relacionados con el Registro Nacional de Automotores (RNA)",
+      "Trámites relacionados con el Registro Nacional de Conductores (RNC)",
+      "Administración y control al transporte público",
+      "Soporte al proceso contravencional para imposición, sanción y ejecución de multas",
+      "Accidentalidad",
+      "Control y administración de la asignación de rangos de comparendos",
+      "Reportes gerenciales",
+      "Portal ciudadano: consultas, trámites y pagos en línea"
     ],
     "ficha": [
-      ["Integraciones", "RUNT, SIMIT, pasarelas de pago y bancos, gestión documental, RPA"],
-      ["Despliegue", "Nube (software como servicio) o instalación en la entidad"],
-      ["Seguridad", "Control de acceso por rol, trazabilidad de actuaciones, protección de datos personales"],
-      ["Operación", "Soporte con niveles de servicio, monitoreo 7×24, capacitación y acompañamiento en sitio"],
-      ["Evolución", "Controles de cambio normativos incluidos en el ciclo de versiones"]
+      [
+        "Integraciones",
+        "RUNT, SIMIT, pasarelas de pago y bancos, gestión documental, RPA"
+      ],
+      [
+        "Despliegue",
+        "Nube (software como servicio) o instalación en la entidad"
+      ],
+      [
+        "Seguridad",
+        "Control de acceso por rol, trazabilidad de actuaciones, protección de datos personales"
+      ],
+      [
+        "Operación",
+        "Soporte con niveles de servicio, monitoreo 7×24, capacitación y acompañamiento en sitio"
+      ],
+      [
+        "Evolución",
+        "Controles de cambio normativos incluidos en el ciclo de versiones"
+      ]
     ],
     "imagen": "/media/dato-portatil-recorte.webp"
   },
   {
     "id": "cidi",
     "nombre": "CiDi",
-    "marca": "CiDi",
-    "lema": "Contravenciones, cartera y cobro bajo control",
-    "resumen": "Plataforma para la gestión de comparendos, procesos contravencionales, cartera y cobro coactivo de los organismos de tránsito, con integración a SIMIT y trazabilidad de cada expediente.",
-    "descripcion": "CiDi ordena el proceso que más presión pone sobre un organismo de tránsito: convertir la infracción en una actuación administrativa completa, notificada, sancionada y cobrada dentro de los términos legales. Cada expediente queda trazado desde el comparendo hasta el pago o la ejecución, con alertas de vencimiento y reportes para la Secretaría y los entes de control.",
+    "marca": "CiDi · Centro Integral de Información",
+    "lema": "La información del organismo de tránsito, integrada y bajo control",
+    "resumen": "Plataforma de nueva generación que integra la información del organismo de tránsito para gestionar infractores y procesos contravencionales, cartera y cobro, con trámites y consultas en línea e integración con SIMIT.",
+    "descripcion": "CiDi ordena el proceso que más presión pone sobre un organismo de tránsito: convertir la infracción en una actuación administrativa completa, notificada, sancionada y cobrada dentro de los términos legales, con la información de vehículos, conductores y comparendos en un solo expediente. Cada actuación queda trazada desde el comparendo hasta el pago o la ejecución, con alertas de vencimiento y reportes para la Secretaría y los entes de control.",
     "modulos": [
       "Recepción y validación de comparendos manuales y electrónicos",
       "Proceso contravencional: audiencias, resoluciones, recursos y notificaciones",
@@ -42,11 +57,26 @@
       "Reportes gerenciales y a entes de control"
     ],
     "ficha": [
-      ["Integraciones", "SIMIT, pasarelas de pago, bancos, gestión documental, migración desde sistemas heredados"],
-      ["Despliegue", "Nube (software como servicio) o instalación en la entidad"],
-      ["Seguridad", "Trazabilidad completa de actuaciones, control de acceso por rol, protección de datos"],
-      ["Operación", "Soporte con niveles de servicio, monitoreo 7×24, acompañamiento en la migración de datos"],
-      ["Evolución", "Controles de cambio normativos y de procedimiento"]
+      [
+        "Integraciones",
+        "SIMIT, pasarelas de pago, bancos, gestión documental, migración desde sistemas heredados"
+      ],
+      [
+        "Despliegue",
+        "Nube (software como servicio) o instalación en la entidad"
+      ],
+      [
+        "Seguridad",
+        "Trazabilidad completa de actuaciones, control de acceso por rol, protección de datos"
+      ],
+      [
+        "Operación",
+        "Soporte con niveles de servicio, monitoreo 7×24, acompañamiento en la migración de datos"
+      ],
+      [
+        "Evolución",
+        "Controles de cambio normativos y de procedimiento"
+      ]
     ],
     "imagen": "/media/dato-grafico-recorte.webp"
   }

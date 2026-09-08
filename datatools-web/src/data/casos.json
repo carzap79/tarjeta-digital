@@ -1,24 +1,158 @@
 {
   "clientes": [
-    { "entidad": "Secretaría de Transporte y Movilidad de Cundinamarca", "lugar": "Cundinamarca, Colombia", "linea": "Registro automotor, conductores, infractores y títulos de depósito judicial", "producto": "Circulemos · CiDi" },
-    { "entidad": "Secretaría Distrital de Movilidad de Bogotá", "lugar": "Bogotá D.C., Colombia", "linea": "Sistema de información de movilidad y operación tecnológica", "producto": "Servicios tecnológicos" },
-    { "entidad": "Departamento Administrativo de Tránsito y Transporte", "lugar": "Cartagena, Colombia", "linea": "Trámites de tránsito y control de infractores", "producto": "Circulemos" },
-    { "entidad": "Secretaría de Tránsito de Chía", "lugar": "Chía, Colombia", "linea": "Trámites de tránsito y atención al ciudadano", "producto": "Circulemos" },
-    { "entidad": "Municipalidad Provincial del Callao", "lugar": "Callao, Perú", "linea": "Registro automotor y control de infractores", "producto": "Circulemos" }
+    {
+      "entidad": "Secretaría de Transporte y Movilidad de Cundinamarca",
+      "lugar": "Cundinamarca, Colombia",
+      "linea": "Registro automotor, conductores, infractores y títulos de depósito judicial",
+      "producto": "Circulemos · CiDi"
+    },
+    {
+      "entidad": "Secretaría Distrital de Movilidad de Bogotá (SIM)",
+      "lugar": "Bogotá D.C., Colombia",
+      "linea": "Sistema de información de movilidad y operación tecnológica",
+      "producto": "Servicios tecnológicos"
+    },
+    {
+      "entidad": "Secretaría Distrital de Movilidad de Bogotá, proyecto con ETB",
+      "lugar": "Bogotá D.C., Colombia",
+      "linea": "Operación tecnológica y procesos de negocio",
+      "producto": "Servicios tecnológicos"
+    },
+    {
+      "entidad": "Departamento Administrativo de Tránsito y Transporte (DATT)",
+      "lugar": "Cartagena, Colombia",
+      "linea": "Trámites de tránsito y control de infractores",
+      "producto": "Circulemos"
+    },
+    {
+      "entidad": "Secretaría de Tránsito de Chía",
+      "lugar": "Chía, Colombia",
+      "linea": "Trámites de tránsito y atención al ciudadano",
+      "producto": "Circulemos"
+    },
+    {
+      "entidad": "Municipalidad Provincial del Callao",
+      "lugar": "Callao, Perú",
+      "linea": "Registro automotor y control de infractores",
+      "producto": "Circulemos"
+    }
   ],
   "cifras": [
-    { "valor": "+5 millones", "texto": "transacciones al año en nuestras plataformas" },
-    { "valor": "99,9 %", "texto": "de disponibilidad en la operación de plataformas críticas" },
-    { "valor": "85", "texto": "profesionales certificados en el equipo" },
-    { "valor": "2 países", "texto": "Colombia y Perú, con capacidad para el resto de Latinoamérica" }
+    {
+      "valor": "+5 millones",
+      "texto": "transacciones al año en nuestras plataformas"
+    },
+    {
+      "valor": "99,9 %",
+      "texto": "de disponibilidad en la operación de plataformas críticas"
+    },
+    {
+      "valor": "85",
+      "texto": "profesionales certificados en el equipo"
+    },
+    {
+      "valor": "2 países",
+      "texto": "Colombia y Perú, con capacidad para el resto de Latinoamérica"
+    }
   ],
   "lineas": [
-    { "nombre": "Registro Nacional de Automotores (RNA)", "que": "Gestión completa del ciclo de vida de los vehículos: inscripción, traspasos, actualización de datos, certificados y trámites en línea.", "alcance": "Circulemos · RUNT · trámites en línea" },
-    { "nombre": "Registro Nacional de Conductores (RNC)", "que": "Administración de licencias de conducción: expedición, refrendación, recategorización y control de antecedentes.", "alcance": "Circulemos · RNC" },
-    { "nombre": "Control de infractores", "que": "Soporte al proceso contravencional completo: imposición, notificación, sanción y ejecución de multas.", "alcance": "CiDi · SIMIT" },
-    { "nombre": "Accidentalidad y comparendos", "que": "Análisis estadístico de accidentalidad, asignación de rangos de comparendos y reportes gerenciales.", "alcance": "Inteligencia de negocios · reportes" },
-    { "nombre": "Gestión documental", "que": "Procesos con cero papel bajo los lineamientos del Archivo General de la Nación: tablas de retención, correspondencia y archivos centrales.", "alcance": "TRD y TVD · expediente electrónico" },
-    { "nombre": "Operación tecnológica 7×24", "que": "Monitoreo de infraestructura y seguridad operativa las 24 horas, nube e inteligencia de negocios, con 85 profesionales certificados.", "alcance": "NOC · iSOC · nube" }
+    {
+      "nombre": "Registro Nacional de Automotores (RNA)",
+      "que": "Gestión completa del ciclo de vida de los vehículos: inscripción, traspasos, actualización de datos, certificados y trámites en línea.",
+      "alcance": "Circulemos · RUNT · trámites en línea"
+    },
+    {
+      "nombre": "Registro Nacional de Conductores (RNC)",
+      "que": "Administración de licencias de conducción: expedición, refrendación, recategorización y control de antecedentes.",
+      "alcance": "Circulemos · RNC"
+    },
+    {
+      "nombre": "Control de infractores",
+      "que": "Soporte al proceso contravencional completo: imposición, notificación, sanción y ejecución de multas.",
+      "alcance": "CiDi · SIMIT"
+    },
+    {
+      "nombre": "Accidentalidad y comparendos",
+      "que": "Análisis estadístico de accidentalidad, asignación de rangos de comparendos y reportes gerenciales.",
+      "alcance": "Inteligencia de negocios · reportes"
+    },
+    {
+      "nombre": "Gestión documental",
+      "que": "Procesos con cero papel bajo los lineamientos del Archivo General de la Nación: tablas de retención, correspondencia y archivos centrales.",
+      "alcance": "TRD y TVD · expediente electrónico"
+    },
+    {
+      "nombre": "Operación tecnológica 7×24",
+      "que": "Monitoreo de infraestructura y seguridad operativa las 24 horas, nube e inteligencia de negocios, con 85 profesionales certificados.",
+      "alcance": "NOC · iSOC · nube"
+    }
   ],
-  "sectores": ["Movilidad y tránsito", "Gobierno", "Salud", "Catastro", "Gestión documental", "Cobranza y cartera"]
+  "sectores": [
+    "Movilidad y tránsito",
+    "Gobierno",
+    "Salud",
+    "Catastro",
+    "Gestión documental",
+    "Cobranza y cartera"
+  ],
+  "salud": [
+    {
+      "entidad": "Avanzar Foscal",
+      "lugar": "Santander, Arauca, Norte de Santander, Cesar y La Guajira"
+    },
+    {
+      "entidad": "ESE Hospital San Juan de Dios de Floridablanca",
+      "lugar": "Nivel 2"
+    },
+    {
+      "entidad": "ESE Clínica Guane",
+      "lugar": "Primer nivel"
+    },
+    {
+      "entidad": "Salud con Calidad IPS",
+      "lugar": "Barichara, Charalá, Barbosa y Lebrija"
+    },
+    {
+      "entidad": "Médicos y Odontólogos de Ecopetrol",
+      "lugar": ""
+    },
+    {
+      "entidad": "Secretaría de Salud de Santander",
+      "lugar": "Santander"
+    },
+    {
+      "entidad": "Secretaría de Salud de La Guajira",
+      "lugar": "La Guajira"
+    }
+  ],
+  "trayectoria": [
+    {
+      "proyecto": "Facturación y recaudo del sistema de recolección de basuras de Bogotá (CUPIC)",
+      "alcance": "Suministro y operación de la tecnología informática; facturación anual de US$ 90 millones"
+    },
+    {
+      "proyecto": "Gestión de flota y despacho de Express del Futuro, operador de Transmilenio",
+      "alcance": "Suministro y operación de la tecnología informática para 125 buses"
+    },
+    {
+      "proyecto": "Tarjetas inteligentes de operación (RFID) del transporte público de Bogotá",
+      "alcance": "Suministro y operación de la tecnología informática para más de 25.000 buses"
+    },
+    {
+      "proyecto": "Concesión de los sistemas de tránsito y transporte de Cundinamarca, Barranquilla y Cartagena",
+      "alcance": "Tecnología informática, operación y recaudo; cobertura de más de 2 millones de vehículos"
+    },
+    {
+      "proyecto": "Outsourcing de TI en Pereira",
+      "alcance": "Facturación y recaudo de servicios: más de 120.000 facturas al mes"
+    },
+    {
+      "proyecto": "Suministro y operación de la tecnología informática de ECSA",
+      "alcance": "US$ 800 millones en 10 años"
+    },
+    {
+      "proyecto": "Outsourcing de la Unión Temporal Grifo para la Empresa de Acueducto y Alcantarillado de Bogotá",
+      "alcance": "US$ 365 millones al año, hasta 2002"
+    }
+  ]
 }
